@@ -22,7 +22,8 @@ Route::get('/admin', function () {
 });
 Route::controller(CategoriaController::class)->group(function(){
     Route::get('/admin/categoria', 'index_categoria')->name('categoria_index');
-    Route::get('/admin/categoria/create', 'create_categoria_admin')->name('categoria_create');
-    Route::get('/admin/categoria/edit', 'edit_categoria_admin')->name('categoria_edit');
+    Route::get('/admin/categoria/create', 'create_categoria')->name('categoria_create');
+    Route::get('/admin/categoria/edit/{slug}', 'update_categoria')->name('categoria_edit');
+    Route::get('/admin/categoria/delete/{slug}', 'delete_categoria')->name('categoria_delete');
 });
 
