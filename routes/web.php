@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::controller(BlogController::class)->group(function(){
+    Route::get('/admin/categoria/index', 'index_categoria_admin')->name('categoria');
+    Route::get('/admin/categoria/create', 'create_categoria_admin')->name('categoria');
+    Route::get('/admin/categoria/edit', 'edit_categoria_admin')->name('categoria');
+});
+
