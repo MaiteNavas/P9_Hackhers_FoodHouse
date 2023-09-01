@@ -21,6 +21,9 @@ return new class extends Migration
             $table->text('descripcion', );
             $table->double('precio', 3, 2);
         });
+
+          //$table->id();
+          //$table->timestamps();
     }
 
     /**
