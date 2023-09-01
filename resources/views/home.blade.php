@@ -2,3 +2,4 @@
 
 @section('nombre_pagina')
     Inicio
+

@@ -7,5 +7,5 @@
         <title>Laravel</title>
     </head>
     <body>
-        <h1>Food for home</h1>
-        @yield('header')
+        <h1 >@yield('header')</h1>
+        

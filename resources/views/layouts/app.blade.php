@@ -26,7 +26,7 @@
 
     <body>
         
-    <h2>@yield('nombre_pagina')</h2>
+        <h2>@yield('nombre_pagina')</h2>
 
     </body>
 </html>
