@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('producto', function (Blueprint $table) {
-            $table->autoIncrement('id_producto');
-            $table->foreign('id_categoria')->references('id_categoria')->on('categoria');
-            $table->foreign('id_estado_producto')->references('id_estado_producto')->on('estado_producto');
+            $table->id();
+            $table->foreign('id_categoria')->references('id')->on('categoria')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_estado_producto')->references('id')->on('estado_producto')->onUpdate('cascade')->onDelete('cascade');
             $table->string('nombre_producto');
-            $table->text('descripcion');
+            $table->text('descripcion', );
             $table->double('precio', 3, 2);
         });
     }
