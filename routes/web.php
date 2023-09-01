@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
-Route::controller(BlogController::class)->group(function(){
-    Route::get('/admin/categoria/index', 'index_categoria_admin')->name('categoria');
-    Route::get('/admin/categoria/create', 'create_categoria_admin')->name('categoria');
-    Route::get('/admin/categoria/edit', 'edit_categoria_admin')->name('categoria');
+Route::get('/admin', function () {
+    return view('admin/index_admin');
+});
+Route::controller(CategoriaController::class)->group(function(){
+    Route::get('/admin/categoria', 'index_categoria')->name('categoria_index');
+    Route::get('/admin/categoria/create', 'create_categoria_admin')->name('categoria_create');
+    Route::get('/admin/categoria/edit', 'edit_categoria_admin')->name('categoria_edit');
 });
 
