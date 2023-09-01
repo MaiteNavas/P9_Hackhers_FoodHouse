@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('categoria', function (Blueprint $table) {
             $table->id('id_categoria');
-            $table->timestamps();
+
+        
+            
+            
         });
     }
 
@@ -24,4 +27,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('categoria');
     }
-};
+ 
