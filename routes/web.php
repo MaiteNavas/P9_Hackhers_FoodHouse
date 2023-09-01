@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ProductoController;
+use App\Models\Producto;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +29,7 @@ Route::controller(CategoriaController::class)->group(function(){
     Route::get('/admin/categoria/delete/{slug}', 'delete_categoria')->name('categoria_delete');
 });
 
+Route::get('/admin/producto', [ProductoController::class, 'index_producto'])->name('producto_index');
+Route::get('/admin/producto/create', [ProductoController::class, 'create_producto'])->name('producto_create');
+Route::get('/admin/producto/edit/{slug}', [ProductoController::class, 'update_producto'])->name('producto_edit');
+Route::get('/admin/producto/delete/{slug}', [ProductoController::class, 'delete_producto'])->name('producto_delete');
