@@ -11,21 +11,35 @@ use Illuminate\View\View;
 class CategoriaController extends Controller
 {
     public function index_categoria(){
-        $categoria = DB::table('categoria')->get($categoria = ['*']);
-        return view('admin.categoria.index_categoria_admin', ['categoria' => $categoria]);
+        $categorias = Categoria::all($columns = ['*']);
+ 
+        return view('admin.categoria.index_categoria',compact('categorias'));
     }
     public function create_categoria(){
-        $nombre_categoria = DB::table('categoria')->insert();
-        return view('admin.categoria.index_categoria_admin', ['nombre_categoria' => $nombre_categoria]);
+        return view('admin.categoria.create_categoria');
     }
-    public function update_categoria($nombre_categoria){
-        //$categoria = Categoria::find($id_categoria);
-        $nombre_categoria = DB::table('categoria')->where('id_categoria')->update(['nombre_categoria' => 1]);;
-        return view('admin.categoria.index_categoria_admin');
+    public function store_categoria(Request $request){
+        Categoria::create([
+            'id_categoria' => $request->id_categoria,
+            'nombre_categoria' => $request->nombre_categoria,
+        ]);
+        return redirect()->route('categoria.index');
     }
-    public function delete_categoria($id_categoria){
-        $categoria = DB::table('categoria')->where(['id_categoria' =>$id_categoria])->delete();;
-        return view('admin.categoria.index_categoria_admin');
+    public function edit_categoria(Categoria $categoria){
+        
+        return view('admin.categoria.edit_categoria',compact('categoria'));
+    }
+    public function update_categoria(Request $request,Categoria $categoria){
+        $categoria->update([
+            'id_categoria' => $request->id_categoria,
+            'nombre_categoria' => $request->nombre_categoria,
+        ]);
+
+        return redirect()->route('categoria.index');
+    }
+    public function delete_categoria(Categoria $categoria){
+        $categoria->delete();
+        return redirect()->route('categoria.index');
     }
 
 }
