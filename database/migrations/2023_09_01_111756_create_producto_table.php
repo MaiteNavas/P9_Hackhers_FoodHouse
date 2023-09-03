@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_estado_producto');
             $table->foreign('id_estado_producto')->references('id_estado_producto')->on('estado_producto');
             $table->string('nombre_producto');
-            $table->text('descripcion');
+            $table->text('descripcion', );
             $table->double('precio', 3, 2);
         });
 
