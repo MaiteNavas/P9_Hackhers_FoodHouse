@@ -31,7 +31,17 @@ Route::controller(CategoriaController::class)->group(function(){
     Route::delete('/admin/categoria/delete/{categoria}', 'delete_categoria')->name('categoria.delete');
 });
 
-Route::get('/admin/producto', [ProductoController::class, 'index_producto'])->name('producto_index');
-Route::get('/admin/producto/create', [ProductoController::class, 'create_producto'])->name('producto_create');
-Route::get('/admin/producto/edit/id={slug}', [ProductoController::class, 'update_producto'])->name('producto_edit');
-Route::get('/admin/producto/delete/id={slug}', [ProductoController::class, 'delete_producto'])->name('producto_delete');
+// Route::get('/admin/producto', [ProductoController::class, 'index_producto'])->name('producto.index');
+// Route::get('/admin/producto/create', [ProductoController::class, 'create_producto'])->name('producto.create');
+// Route::post('/admin/producto/store', [ProductoController::class, 'store_producto'])->name('producto.store');
+// Route::get('/admin/producto/edit/id={slug}', [ProductoController::class, 'update_producto'])->name('producto_edit');
+// Route::get('/admin/producto/delete/id={slug}', [ProductoController::class, 'delete_producto'])->name('producto_delete');
+
+Route::controller(ProductoController::class)->group(function(){
+    Route::get('/admin/producto', 'index_producto')->name('producto.index');
+    Route::get('/admin/producto/create', 'create_producto')->name('producto.create');
+    Route::post('/admin/producto/store', 'store_producto')->name('producto.store');
+    Route::get('/admin/producto/edit/{producto}', 'edit_producto')->name('producto.edit');
+    Route::post('/admin/producto/update/{producto}', 'update_producto')->name('producto.update');
+    Route::delete('/admin/producto/delete/{producto}', 'delete_producto')->name('producto.delete');
+});
