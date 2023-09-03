@@ -11,8 +11,18 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::controller(UsuarioController::class)->group(function(){
+    Route::get('/admin/usuario', 'index_usuario')->name('usuario.index');
+    Route::get('/admin/usuario/create', 'create_usuario')->name('usuario.create');
+    Route::post('/admin/usuario/store', 'store_usuario')->name('usuario.store');
+    Route::get('/admin/usuario/edit/{usuario}', 'edit_usuario')->name('usuario.edit');
+    Route::post('/admin/usuario/update/{usuario}', 'update_usuario')->name('usuario.update');
+    Route::delete('/admin/usuario/delete/{usuario}', 'delete_usuario')->name('usuario.delete');
+});
 
-Route::get('/usuario',[UsuarioController::class, 'index'])->name('usuario.index');
+
+//
+
 
 Route::get('/admin', function () {
     return view('admin/index_admin');

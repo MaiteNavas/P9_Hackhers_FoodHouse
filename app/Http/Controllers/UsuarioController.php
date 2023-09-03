@@ -15,5 +15,35 @@ class UsuarioController extends Controller
 
         return view('admin.usuario.index_usuario',compact('usuarios'));
     }
+    public function create_usuario(){
+        return view('admin.usuario.create_usuario');
+    }
+    public function store_usuario(Request $request){
+        Usuario::create([
+            'id_usuario' => $request->id_usuario,
+            'nombre' => $request->nombre,
+            'apellidos' => $request->apellidos,
+            'correo' => $request->correo,
+            'direccion' => $request->direccion,
+            'telefono' => $request->telefono,
+        ]);
+        return redirect()->route('usuario.index');
+    }
+    public function edit_usuario(Usuario $usuario){
+        
+        return view('admin.usuario.edit_usuario',compact('usuario'));
+    }
+    public function update_usuario(Request $request,Usuario $usuario){
+        $usuario->update([
+            'nombre' => $request->nombre,
+            'apellidos' => $request->apellidos, 
+        ]);
+
+        return redirect()->route('usuario.index');
+    }
+    public function delete_usuario(Usuario $usuario){
+        $usuario->delete();
+        return redirect()->route('usuario.index');
+    }
 
 }
