@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('id_estado_producto')->references('id_estado_producto')->on('estado_producto');
             $table->string('nombre_producto');
             $table->text('descripcion', );
-            $table->double('precio', 3, 2);
+            $table->decimal('precio', 5, 2);
         });
 
           //$table->id();

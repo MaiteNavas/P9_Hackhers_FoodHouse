@@ -11,6 +11,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/admin', function () {
+    return view('admin/index_admin');
+}); 
+
 Route::controller(UsuarioController::class)->group(function(){
     Route::get('/admin/usuario', 'index_usuario')->name('usuario.index');
     Route::get('/admin/usuario/create', 'create_usuario')->name('usuario.create');
@@ -21,14 +25,9 @@ Route::controller(UsuarioController::class)->group(function(){
 });
 
 
-//
-
-
-Route::get('/admin', function () {
-    return view('admin/index_admin');
-});
 Route::controller(CategoriaController::class)->group(function(){
     Route::get('/admin/categoria', 'index_categoria')->name('categoria.index');
+   // Route::get('/admin/producto/create', 'index_categoria')->name('categoria.index');
     Route::get('/admin/categoria/create', 'create_categoria')->name('categoria.create');
     Route::post('/admin/categoria/store', 'store_categoria')->name('categoria.store');
     Route::get('/admin/categoria/edit/{categoria}', 'edit_categoria')->name('categoria.edit');
@@ -36,11 +35,6 @@ Route::controller(CategoriaController::class)->group(function(){
     Route::delete('/admin/categoria/delete/{categoria}', 'delete_categoria')->name('categoria.delete');
 });
 
-// Route::get('/admin/producto', [ProductoController::class, 'index_producto'])->name('producto.index');
-// Route::get('/admin/producto/create', [ProductoController::class, 'create_producto'])->name('producto.create');
-// Route::post('/admin/producto/store', [ProductoController::class, 'store_producto'])->name('producto.store');
-// Route::get('/admin/producto/edit/id={slug}', [ProductoController::class, 'update_producto'])->name('producto_edit');
-// Route::get('/admin/producto/delete/id={slug}', [ProductoController::class, 'delete_producto'])->name('producto_delete');
 
 Route::controller(ProductoController::class)->group(function(){
     Route::get('/admin/producto', 'index_producto')->name('producto.index');

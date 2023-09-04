@@ -3,12 +3,12 @@
 
 @section('content')
 
-<a class="btn custom-btn" href="{{ route('usuario.index')}}">Volver</a>
+<a class="btn custom-btn" href="/admin">Volver</a>
     <a class="btn custom-btn" href="{{ route('usuario.create')}}">Crear usuario</a>
     <h1>LISTA DE USUARIOS</h1>
     @forelse($usuarios as $usuario)
     <div class="center">
-        <h3>{{ $usuario->id_usuario }}
+        <h3>{{ $usuario->id_usuario }}  
             {{ $usuario->nombre }}
             {{ $usuario->apellidos }}
         </h3>
