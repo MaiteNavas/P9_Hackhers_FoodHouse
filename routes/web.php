@@ -50,3 +50,6 @@ Route::controller(ProductoController::class)->group(function(){
     Route::post('/admin/producto/update/{producto}', 'update_producto')->name('producto.update');
     Route::delete('/admin/producto/delete/{producto}', 'delete_producto')->name('producto.delete');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
