@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+<!-- @extends('layouts.app2')
 
 @section('content')
 
@@ -50,4 +50,4 @@
 
 @endsection
 </html>
-<h1>Hola desde el carrito</h1>
+<h1>Hola desde el carrito</h1> -->

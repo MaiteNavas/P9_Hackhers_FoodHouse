@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\CarritoController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\ProductoController;
 use App\Models\Producto;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+//use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CategoriaController;
 
 
-Route::get('/', function () {
-    return view('home');
-});
+//Route::get('/', function () {
+    //return view('home');
+//});
 
 Route::controller(UsuarioController::class)->group(function(){
     Route::get('/admin/usuario', 'index_usuario')->name('usuario.index');
@@ -20,9 +21,6 @@ Route::controller(UsuarioController::class)->group(function(){
     Route::post('/admin/usuario/update/{usuario}', 'update_usuario')->name('usuario.update');
     Route::delete('/admin/usuario/delete/{usuario}', 'delete_usuario')->name('usuario.delete');
 });
-
-
-//
 
 
 Route::get('/admin', function () {
@@ -44,14 +42,23 @@ Route::controller(ProductoController::class)->group(function(){
     Route::get('/admin/producto/edit/{producto}', 'edit_producto')->name('producto.edit');
     Route::post('/admin/producto/update/{producto}', 'update_producto')->name('producto.update');
     Route::delete('/admin/producto/delete/{producto}', 'delete_producto')->name('producto.delete');
-    Route::get('/usuario', 'show_producto')->name('producto.index');
+    //Route::get('/usuario', 'show_producto')->name('producto.index');
 
 });
+
+
+Route::get('/', [CartController::class, 'shop'])->name('shop');
+Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
+Route::post('/add', [CartController::class, 'add'])->name('cart.store');
+Route::post('/update', [CartController::class, 'update'])->name('cart.update');
+Route::post('/remove', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/clear', [CartController::class, 'clear'])->name('cart.clear');
+
 
 //Rutas cart
-Route::controller(CarritoController::class)->group(function(){
-Route::get('/usuario/carrito', 'index')->name('usuario.carrito.index');
-Route::post('/usuario/carrito/agregar', 'agregar')->name('carrito.agregar');
-Route::post('/usuario/carrito/eliminar', 'CarritoController@eliminar')->name('carrito.eliminar');
-Route::get('/usuario/carrito/comprar', 'CarritoController@comprar')->name('carrito.comprar');
-});
+//Route::controller(CarritoController::class)->group(function(){
+//Route::get('/usuario/carrito', 'index')->name('usuario.carrito.index');
+//Route::post('/usuario/carrito/agregar', 'agregar')->name('carrito.agregar');
+//Route::post('/usuario/carrito/eliminar', 'CarritoController@eliminar')->name('carrito.eliminar');
+///Route::get('/usuario/carrito/comprar', 'CarritoController@comprar')->name('carrito.comprar');
+//});

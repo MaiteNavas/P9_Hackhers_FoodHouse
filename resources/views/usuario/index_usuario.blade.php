@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('content')
 
@@ -30,4 +30,4 @@
 </body>
 </html>
 
-<h1>Hola desde el despliegue de producto</h1>
+<h1>Hola desde el despliegue de producto</h1> -->
