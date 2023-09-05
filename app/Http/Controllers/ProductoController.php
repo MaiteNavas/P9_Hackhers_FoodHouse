@@ -65,6 +65,12 @@ class ProductoController extends Controller
         return redirect()->route('producto.index');
     }
 
+    public function show_producto(){
+        $productos = Producto::all($columns = ['*']);
+ 
+        return view('usuario.show_product',compact('productos'));
+    }
+
 
 
 }
