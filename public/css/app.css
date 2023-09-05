@@ -29,8 +29,26 @@
     display: flex;
     justify-content: center;
     max-width: 30%;
-    
 }
+
+.crearusuarioprimero:hover{
+    background-color: white;
+    color: #FF6B01;
+    border-color: #FF6B01;
+    display: flex;
+    justify-content: center;
+    max-width: 30%;
+}
+
+.crearusuario{
+    background-color: #FF6B01;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+   
 
 
 
@@ -55,9 +73,17 @@
 
 .containercrearusuario{
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
 }
+
+.centerusuario {
+    border-collapse: collapse; 
+    border: 1px solid #FF6B01; 
+    border-radius: 5px; 
+    margin-bottom: 10px;
+}
+
 
 /*NAVBAR*/
 

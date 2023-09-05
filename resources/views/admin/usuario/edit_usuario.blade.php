@@ -31,7 +31,8 @@
 
         </form>
     </div>
-
-    <a class="btn custom-btn" href="{{ route('usuario.index')}}">Volver</a>
+    <div class="center-container">
+       <a class="btn custom-btn" href="{{ route('usuario.index')}}">Volver a usuario</a>
+    </div>
 
 @endsection
