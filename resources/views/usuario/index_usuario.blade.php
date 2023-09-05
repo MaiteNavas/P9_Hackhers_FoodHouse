@@ -5,6 +5,8 @@
 <a class="btn custom-btn" href="{{ route('producto.index')}}">Volver</a>
 
 <h1>LISTA DE PRODUCTOS</h1>
+<a class="btn custom-btn" href="/usuario/carrito">Ir al carrito</a>
+
 @forelse($productos as $producto)
 <div class="center">
     <h3>
@@ -16,7 +18,7 @@
 
     <form action="{{ route('carrito.agregar') }}" method="POST">
         @csrf
-        <input type="hidden" name="producto_id" value="{{ $producto->id_producto }}">
+        <input type="hidden" name="id_producto" value="{{ $producto->id_producto }}">
         <button type="submit" class="btn btn-primary">Agregar al carrito</button>
     </form>
 </div>

@@ -41,6 +41,13 @@ class CarritoController extends Controller
         session()->put('carrito', $carrito);
 
         // Redirige de vuelta a la lista de productos con un mensaje de éxito
-        return redirect()->route('producto.index')->with('success', 'Producto agregado al carrito');
+        //return redirect()->route('producto.index')->with('success', 'Producto agregado al carrito');
+        return view('usuario.index_usuario', compact('carrito'));
+    }
+
+    public function index($carrito){
+    
+        return $carrito;
+        
     }
 }

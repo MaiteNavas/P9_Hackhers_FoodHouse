@@ -10,6 +10,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Producto</th>
                     <th>Descripción</th>
                     <th>Precio</th>
@@ -19,17 +20,18 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($carrito as $item)
+                @foreach($carrito as $carrito)
                     <tr>
-                        <td>{{ $item['nombre_producto'] }}</td>
-                        <td>{{ $item['descripcion'] }}</td>
-                        <td>{{ $item['precio'] }}</td>
-                        <td>{{ $item['cantidad'] }}</td>
-                        <td>{{ $item['precio'] * $item['cantidad'] }}</td>
+                        <td>{{ $carrito['id_producto'] }}</td>
+                        <td>{{ $carrito['nombre_producto'] }}</td>
+                        <td>{{ $carrito['descripcion'] }}</td>
+                        <td>{{ $carrito['precio'] }}</td>
+                        <td>{{ $carrito['cantidad'] }}</td>
+                        <td>{{ $carrito['precio'] * $carrito['cantidad'] }}</td>
                         <td>
                             <form action="{{ route('carrito.eliminar') }}" method="POST">
                                 @csrf
-                                <input type="hidden" name="producto_id" value="{{ $item['id_producto'] }}">
+                                <input type="hidden" name="id_producto" value="{{ $item['id_producto'] }}">
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
                             </form>
                         </td>
@@ -47,3 +49,5 @@
     @endif
 
 @endsection
+</html>
+<h1>Hola desde el carrito</h1>

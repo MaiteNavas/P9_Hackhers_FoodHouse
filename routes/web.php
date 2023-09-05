@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarritoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CategoriaController;
@@ -48,7 +49,9 @@ Route::controller(ProductoController::class)->group(function(){
 });
 
 //Rutas cart
-Route::get('/carrito', 'CarritoController@index')->name('carrito.index');
-Route::post('/carrito/agregar', 'CarritoController@agregar')->name('carrito.agregar');
-Route::post('/carrito/eliminar', 'CarritoController@eliminar')->name('carrito.eliminar');
-Route::get('/carrito/comprar', 'CarritoController@comprar')->name('carrito.comprar');
+Route::controller(CarritoController::class)->group(function(){
+Route::get('/usuario/carrito', 'index')->name('usuario.carrito.index');
+Route::post('/usuario/carrito/agregar', 'agregar')->name('carrito.agregar');
+Route::post('/usuario/carrito/eliminar', 'CarritoController@eliminar')->name('carrito.eliminar');
+Route::get('/usuario/carrito/comprar', 'CarritoController@comprar')->name('carrito.comprar');
+});
