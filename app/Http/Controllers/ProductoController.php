@@ -34,6 +34,8 @@ class ProductoController extends Controller
         return view('admin.producto.index_producto',compact('productos'));
     }
     public function create_producto(){
+        $categorias = Categoria::all($columns = ['*']);
+        $estadoProductos = EstadoProducto::all($columns = ['*']);
         return view('admin.producto.create_producto');
     }
     public function store_producto(Request $request){
