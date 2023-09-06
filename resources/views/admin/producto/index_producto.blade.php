@@ -1,9 +1,10 @@
-@extends('layouts.app2')
+@extends('layouts.admin')
 
 @section('content')
 
-    <a class="btn custom-btn" href="{{ route('producto.index')}}">Volver</a>
+<div class="containercrearusuario">    
     <a class="btn custom-btn" href="{{ route('producto.create')}}">Crear Producto</a>
+</div>    
     <h1>LISTA DE PRODUCTOS</h1>
     @forelse($productos as $producto)
     <div class="center">
@@ -12,7 +13,9 @@
             {{ $producto->descripcion }}
             {{ $producto->precio }}
         </h3>
-            <a class="btn custom-btn" href="{{ route('producto.edit',$producto->id_producto)}}">Editar</a>
+        <button type="submit" class="btn custom-btn crearusuario">
+            <a href="{{ route('producto.edit',$producto->id_producto)}}">Editar</a>
+        </button>
             <form action="{{ route('producto.delete', $producto->id_producto) }}" method="POST">
                 @csrf
                 @method("DELETE")
@@ -22,6 +25,11 @@
     @empty
         <p>No hay productos registrados</p>
    @endforelse
+
+   <div class="center-container">
+       <a class="btn custom-btn" href="{{ url('/admin') }}">Volver</a>
+    </div>
+
 @endsection('content')
 
 </body>
