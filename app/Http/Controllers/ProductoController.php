@@ -70,7 +70,7 @@ class ProductoController extends Controller
     public function show_producto(){
         $productos = Producto::all($columns = ['*']);
  
-        return view('usuario.show_product',compact('productos'));
+        return view('usuario.index_usuario',compact('productos'));
     }
 
 

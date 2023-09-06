@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($pedido as $item)
+                @foreach($pedido as $carrito)
                     <tr>
                         <td>{{ $carrito['id_producto'] }}</td>
                         <td>{{ $carrito['nombre_producto'] }}</td>
