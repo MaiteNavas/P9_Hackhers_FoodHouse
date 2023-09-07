@@ -20,12 +20,13 @@
             </select>
             </div>
             <div class="mb-3">
-                <label for="estado" class="form-label">Estado</label>
-                <select name="id_estado_producto" required class="form-control" id="estado">
-                <option value=1>Disponible</option>
-                <option value=2>No Disponible</option>
-                </select>
-            </div>               
+            <label for="exampleInputEmail1" class="form-label">Categoria</label>
+            <select name="id_estado_producto" required class="form-control" id="estado_producto">
+            @foreach ($estadoProductos as $estadoProducto)
+                <option value="{{$estadoProducto->id_estado_producto}}">{{$estadoProducto->nombre_estado_producto}}</option>
+            @endforeach
+            </select>
+            </div>              
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Descripción</label>
                 <input type="text" name="descripcion" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -37,7 +38,6 @@
             <button type="submit" class="btn custom-btn">Guardar</button>
 
         </form>
-</div>
-@endsection
-</body>
-</html>
+    </div>
+@endsectio
+

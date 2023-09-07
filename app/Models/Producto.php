@@ -13,15 +13,8 @@ class Producto extends Model
    protected $primaryKey = 'id_producto';
    public $timestamps = false;
    protected $fillable =[
-       "id_categoria",
-       "id_estado_producto",
        "nombre_producto",
        "descripcion",
-       "precio",
+       "precio"
    ];
-
-   public function categoria(): BelongsTo
-   {
-       return $this->belongsTo(Categoria::class);
-   }
 }

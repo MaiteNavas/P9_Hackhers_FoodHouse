@@ -5,13 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Categoria;
+use App\Models\EstadoProducto;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
 
 class ProductoController extends Controller
 {
-
     public function index_producto(){
         $productos = Producto::all($columns = ['*']);
  
@@ -19,11 +17,11 @@ class ProductoController extends Controller
     }
     public function create_producto(){
         $categorias = Categoria::all($columns = ['*']);
-        return view('admin.producto.create_producto',compact('categorias'));        
+        $estadoProductos = EstadoProducto::all($columns = ['*']);
+        return view('admin.producto.create_producto',compact('categorias','estadoProductos'));
     }
     public function store_producto(Request $request){
         Producto::create([
-            'id_producto' => $request->id_producto,
             'nombre_producto' => $request->nombre_producto,
             'descripcion' => $request->descripcion,
             'precio' => $request->precio,
@@ -34,8 +32,9 @@ class ProductoController extends Controller
         return redirect()->route('producto.index');
     }
     public function edit_producto(Producto $producto){
-        
-        return view('admin.producto.edit_producto',compact('producto'));
+        $categorias = Categoria::all($columns = ['*']);
+        $estadoProductos = EstadoProducto::all($columns = ['*']);
+        return view('admin.producto.edit_producto',compact('categorias','estadoProductos','producto'));
     }
     public function update_producto(Request $request,Producto $producto){
         $producto->update([
@@ -52,6 +51,12 @@ class ProductoController extends Controller
     public function delete_producto(Producto $producto){
         $producto->delete();
         return redirect()->route('producto.index');
+    }
+
+    public function show_producto(){
+        $productos = Producto::all($columns = ['*']);
+ 
+        return view('usuario.index_usuario',compact('productos'));
     }
 
 

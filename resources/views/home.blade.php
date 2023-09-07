@@ -4,7 +4,7 @@
 <header>
     <div class="center">
         <div class="botones">
-            <a class="btn custom-btn" href="/">Usuarios</a>
+            <a class="btn custom-btn" href="/usuario">Usuarios</a>
             <a class="btn custom-btn" href="/admin">Admin</a>
         </div>
     </div>
