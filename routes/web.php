@@ -6,7 +6,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PedidoController;
-use App\Models\Producto;
+
 
 
 Route::get('/', function () {
@@ -21,10 +21,6 @@ Route::controller(UsuarioController::class)->group(function(){
     Route::post('/admin/usuario/update/{usuario}', 'update_usuario')->name('usuario.update');
     Route::delete('/admin/usuario/delete/{usuario}', 'delete_usuario')->name('usuario.delete');
 });
-
-
-//
-
 
 Route::get('/admin', function () {
     return view('admin/index_admin');
@@ -48,11 +44,12 @@ Route::controller(ProductoController::class)->group(function(){
     //Route::get('/usuario', 'show_producto')->name('usuario.producto.index');
 
 });
-Route::controller(ProductoController::class)->group(function(){
-Route::get('/usuario', [PedidoController::class, 'index']);  
-Route::get('/pedido', [PedidoController::class, 'productCart'])->name('shopping.cart');
-Route::get('/product/{id}', [PedidoController::class, 'addProducttoCart'])->name('addProduct.to.cart');
-Route::get('/product/remove/{id}', [PedidoController::class, 'removeProducttoCart'])->name('removeProduct.to.cart');
-Route::patch('/update-shopping-cart', [PedidoController::class, 'updateCart'])->name('update.shopping.cart');
-Route::delete('/delete-cart-product', [PedidoController::class, 'deleteProduct'])->name('delete.cart.product');
-});
+
+
+    
+    Route::get('/dashboard', [PedidoController::class, 'index']);  
+    Route::get('/shopping-cart', [PedidoController::class, 'productCart'])->name('shopping.cart');
+    Route::get('/product/{id}', [PedidoController::class, 'addProducttoCart'])->name('addProduct.to.cart');
+    Route::get('/product/remove/{id}', [PedidoController::class, 'removeProducttoCart'])->name('removeProduct.to.cart');
+    Route::patch('/update-shopping-cart', [PedidoController::class, 'updateCart'])->name('update.shopping.cart');
+    Route::delete('/delete-cart-product', [PedidoController::class, 'deleteProduct'])->name('delete.cart.product');
