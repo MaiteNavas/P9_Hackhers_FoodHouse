@@ -9,21 +9,27 @@
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre del producto</label>
                 <input type="text" name="nombre_producto" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Categoria</label>
-                <input type="text" name="id_categoria" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                
-            <div class="mb-3">
-                <label for="estado" class="form-label">Estado</label>
-                <select name="id_estado_producto" required class="form-control" id="estado">
-                <option value="disponible">Disponible</option>
-                <option value="no_disponible">No Disponible</option>
-                </select>
             </div>
-                            
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Categoria</label>
+            <select name="id_categoria" required class="form-control" id="categoria">
+            @foreach ($categorias as $categoria)
+                <option value="{{$categoria->id_categoria}}">{{$categoria->nombre_categoria}}</option>
+            @endforeach
+            </select>
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Categoria</label>
+            <select name="id_estado_producto" required class="form-control" id="estado_producto">
+            @foreach ($estadoProductos as $estadoProducto)
+                <option value="{{$estadoProducto->id_estado_producto}}">{{$estadoProducto->nombre_estado_producto}}</option>
+            @endforeach
+            </select>
+            </div>              
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Descripción</label>
                 <input type="text" name="descripcion" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
             </div>
             <div class="mb-3">
                 <label for="precio" class="form-label">Precio</label>
