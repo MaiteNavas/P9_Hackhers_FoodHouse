@@ -32,7 +32,17 @@ class PedidoController extends Controller
             ];
         }
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product has been added to cart!');
+        return redirect()->back()->with('success', 'El producto se ha añadido al pedido!');
+    }
+    public function removeProducttoCart($id)
+    {
+        $product = Producto::findOrFail($id);
+        $cart = session()->get('cart', []);
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']--;
+        } 
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'El producto se ha eliminado del pedido!');
     }
     
     public function updateCart(Request $request)

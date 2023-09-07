@@ -1,21 +1,54 @@
 @extends('pedido.shop')
   
 @section('content')
+<form action="{{ route('producto.store')}}" method="POST" autocomplete="off">
+            @csrf
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nombre del producto</label>
+                <input type="text" name="nombre_producto" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Categoria</label>
+            <select name="id_categoria" required class="form-control" id="categoria">
+            @foreach ($categorias as $categoria)
+                <option value="{{$categoria->id_categoria}}">{{$categoria->nombre_categoria}}</option>
+            @endforeach
+            </select>
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Categoria</label>
+            <select name="id_estado_producto" required class="form-control" id="estado_producto">
+            @foreach ($estadoProductos as $estadoProducto)
+                <option value="{{$estadoProducto->id_estado_producto}}">{{$estadoProducto->nombre_estado_producto}}</option>
+            @endforeach
+            </select>
+            </div>              
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Descripción</label>
+                <input type="text" name="descripcion" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" name="precio" required class="form-control" id="precio" step="0.01" min="0.00">
+            </div>
+            <button type="submit" class="btn custom-btn">Guardar</button>
+
+        </form>
 <table id="cart" class="table table-bordered">
     <thead>
         <tr>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
+            <th>Product</th>
+            <th>Price</th>
             <th>Total</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @php $totalPedido = 0 @endphp
+        <form action=""></form>
+        @php $total = 0 @endphp
         @if(session('cart'))
             @foreach(session('cart') as $id => $details)
-            @php $totalPedido += $details['price'] * $details['quantity'] @endphp
+                
                 <tr rowId="{{ $id }}">
                     <td data-th="Product">
                         <div class="row">
@@ -25,20 +58,8 @@
                         </div>
                     </td>
                     <td data-th="Price">${{ $details['price'] }}</td>
-                    <td data-th="Quantity">
-                        <div class="input-group">
-                            <p type="number" class="form-control quantity" value="{{ $details['quantity'] }}" min="1">{{ $details['quantity'] }}</p>
-                            <div class="input-group-append">
-                                 <a href="{{ route('removeProduct.to.cart', $id) }}" class="btn btn-outline-secondary update-quantity">-</a>
-                            <a href="{{ route('addProduct.to.cart', $id) }}" class="btn btn-outline-secondary update-quantity">+</a>
-                            
-                            </div>
-                        </div>
-                    </td>
-                    @php $total = 0 @endphp
-                    @php $total += $details['price'] * $details['quantity'] @endphp
-                    <td data-th="PriceTotal">${{ $total }}</td>
-                    
+                   
+                    <td data-th="Subtotal" class="text-center">${{ $details['quantity'] }}</td>
                     <td class="actions">
                         <a class="btn btn-outline-danger btn-sm delete-product"><i class="fa-solid fa-trash"></i></a>
                     </td>
@@ -47,10 +68,6 @@
         @endif
     </tbody>
     <tfoot>
-       <tr>
-        <td colspan="5" class="text-right">Total ${{ $totalPedido }}
-        </td>
-        </tr>
         <tr>
             <td colspan="5" class="text-right">
                 <a href="{{ url('/dashboard') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a>

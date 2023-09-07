@@ -48,18 +48,11 @@ Route::controller(ProductoController::class)->group(function(){
     Route::get('/usuario', 'show_producto')->name('usuario.producto.index');
 
 });
-//Route::controller(PedidoController::class)->group(function(){
-    //Route::get('/usuario/pedido', 'index_pedido')->name('pedido.index');
-    
-//});
+Route::controller(ProductoController::class)->group(function(){
 Route::get('/dashboard', [PedidoController::class, 'index']);  
 Route::get('/shopping-cart', [PedidoController::class, 'productCart'])->name('shopping.cart');
 Route::get('/product/{id}', [PedidoController::class, 'addProducttoCart'])->name('addProduct.to.cart');
+Route::get('/product/remove/{id}', [PedidoController::class, 'removeProducttoCart'])->name('removeProduct.to.cart');
 Route::patch('/update-shopping-cart', [PedidoController::class, 'updateCart'])->name('update.shopping.cart');
 Route::delete('/delete-cart-product', [PedidoController::class, 'deleteProduct'])->name('delete.cart.product');
-
-//Rutas cart
-//Route::get('/carrito', 'CarritoController@index')->name('carrito.index');
-//Route::post('/carrito/agregar', 'CarritoController@agregar')->name('carrito.agregar');
-//Route::post('/carrito/eliminar', 'CarritoController@eliminar')->name('carrito.eliminar');
-//Route::get('/carrito/comprar', 'CarritoController@comprar')->name('carrito.comprar');
+});
