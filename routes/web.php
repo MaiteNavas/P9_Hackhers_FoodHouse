@@ -45,12 +45,12 @@ Route::controller(ProductoController::class)->group(function(){
     Route::get('/admin/producto/edit/{producto}', 'edit_producto')->name('producto.edit');
     Route::post('/admin/producto/update/{producto}', 'update_producto')->name('producto.update');
     Route::delete('/admin/producto/delete/{producto}', 'delete_producto')->name('producto.delete');
-    Route::get('/usuario', 'show_producto')->name('usuario.producto.index');
+    //Route::get('/usuario', 'show_producto')->name('usuario.producto.index');
 
 });
 Route::controller(ProductoController::class)->group(function(){
-Route::get('/dashboard', [PedidoController::class, 'index']);  
-Route::get('/shopping-cart', [PedidoController::class, 'productCart'])->name('shopping.cart');
+Route::get('/usuario', [PedidoController::class, 'index']);  
+Route::get('/pedido', [PedidoController::class, 'productCart'])->name('shopping.cart');
 Route::get('/product/{id}', [PedidoController::class, 'addProducttoCart'])->name('addProduct.to.cart');
 Route::get('/product/remove/{id}', [PedidoController::class, 'removeProducttoCart'])->name('removeProduct.to.cart');
 Route::patch('/update-shopping-cart', [PedidoController::class, 'updateCart'])->name('update.shopping.cart');

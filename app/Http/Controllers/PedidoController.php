@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Pedido;
 
 class PedidoController extends Controller
 {
@@ -65,5 +66,20 @@ class PedidoController extends Controller
             }
             session()->flash('success', 'Product successfully deleted.');
         }
+    }
+    public function store_pedido(Request $request){
+        Pedido::create([
+            'id_usuario' => $request->id_usuario,
+            'id_estado_pedido' => $request->id_estado_pedido,
+            'precio_pedido' => $request->precio,            
+        ]);
+        Pedido::create([
+            'id_producto' => $request->id_producto,
+            'id_pedido' => $request->id_pedido,
+            'cantidad' => $request->cantidad,
+            'precio_unitario' => $request->precio_unitario,              
+        ]);
+
+
     }
 }
