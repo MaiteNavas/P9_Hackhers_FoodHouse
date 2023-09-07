@@ -39,7 +39,7 @@
                     <ul class="navbar-nav ms-auto">
     @guest
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/auth/index_auth') }}">Usuarios</a>
+            <a class="nav-link" href="/auth/login/login">Usuarios</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/admin">Admin</a>

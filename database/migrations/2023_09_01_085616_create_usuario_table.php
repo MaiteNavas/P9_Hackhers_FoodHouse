@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id('id_usuario');
             $table->string('nombre');
             $table->string('apellidos');
-            $table->string('correo');
+            $table->string('correo')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('contraseña');
+            $table->rememberToken();
             $table->string('direccion');
             $table->string('telefono');
         });
