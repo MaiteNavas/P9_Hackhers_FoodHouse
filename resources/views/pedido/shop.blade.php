@@ -16,10 +16,12 @@
 
                 <i class="fa-solid fa-cart-shopping"></i> Cart <span class="badge text-bg-danger">
                 @php $total = 0 @endphp
-                @foreach(session('cart') as $id => $details)
-                    @php $total += $details['quantity'] @endphp   
-                @endforeach
-                {{ $total }}
+                    @if(session()->has('cart') && is_array(session('cart')))
+                    @foreach(session('cart') as $id => $details)
+                        @php $total += $details['quantity'] @endphp   
+                    @endforeach
+                    @endif
+                    {{ $total }}
             </span>
                 
             </a>
