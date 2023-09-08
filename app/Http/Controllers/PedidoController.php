@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Pedido;
+use App\Models\PedidoProducto;
 
 class PedidoController extends Controller
 {
@@ -26,10 +27,11 @@ class PedidoController extends Controller
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
+                "id" => $id,
                 "name" => $product->nombre_producto,
                 "quantity" => 1,
                 "price" => $product->precio,
-                "description" => $product->descripcion
+                "description" => $product->descripcion,
             ];
         }
         session()->put('cart', $cart);
@@ -52,7 +54,7 @@ class PedidoController extends Controller
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
-            session()->flash('success', 'Product added to cart.');
+            session()->flash('success', 'Producto añadido al pedido');
         }
     }
   
@@ -68,18 +70,18 @@ class PedidoController extends Controller
         }
     }
     public function store_pedido(Request $request){
-        Pedido::create([
+        $pedido = Pedido::create([
             'id_usuario' => $request->id_usuario,
             'id_estado_pedido' => $request->id_estado_pedido,
-            'precio_pedido' => $request->precio,            
+            'precio_pedido' => $request->precio_pedido,            
         ]);
-        Pedido::create([
+        PedidoProducto::create([
             'id_producto' => $request->id_producto,
-            'id_pedido' => $request->id_pedido,
+            'id_pedido' => $pedido->id_pedido,
             'cantidad' => $request->cantidad,
             'precio_unitario' => $request->precio_unitario,              
         ]);
 
-
+        return view('pedido.confirm');
     }
 }

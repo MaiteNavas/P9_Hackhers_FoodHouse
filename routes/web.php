@@ -45,11 +45,15 @@ Route::controller(ProductoController::class)->group(function(){
 
 });
 
-
-    
-    Route::get('/dashboard', [PedidoController::class, 'index']);  
-    Route::get('/shopping-cart', [PedidoController::class, 'productCart'])->name('shopping.cart');
-    Route::get('/product/{id}', [PedidoController::class, 'addProducttoCart'])->name('addProduct.to.cart');
-    Route::get('/product/remove/{id}', [PedidoController::class, 'removeProducttoCart'])->name('removeProduct.to.cart');
-    Route::patch('/update-shopping-cart', [PedidoController::class, 'updateCart'])->name('update.shopping.cart');
-    Route::delete('/delete-cart-product', [PedidoController::class, 'deleteProduct'])->name('delete.cart.product');
+Route::controller(PedidoController::class)->group(function(){    
+    Route::get('/usuario','index');  
+    Route::get('/shopping-cart','productCart')->name('shopping.cart');
+    Route::get('/product/{id}','addProducttoCart')->name('addProduct.to.cart');
+    Route::get('/product/remove/{id}','removeProducttoCart')->name('removeProduct.to.cart');
+    Route::patch('/update-shopping-cart','updateCart')->name('update.shopping.cart');
+    Route::delete('/delete-cart-product','deleteProduct')->name('delete.cart.product');
+    Route::post('/store_pedido','store_pedido')->name('store.pedido');
+    Route::post('/store_pedido_producto','store_pedido_producto')->name('store.product');
+    //Route::get('/confirm-cart','store_pedido')->name('confirm.cart');
+});
+   

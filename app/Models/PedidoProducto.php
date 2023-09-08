@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class PedidoProducto extends Model
 {
     protected $table = 'pedido_producto';
-
+    public $timestamps = false;
     protected $fillable =[
         "id_pedido",
         "id_producto",
-        "precio_pedido",
+        "fecha_venta",
         "cantidad",
         "precio_unitario"
     ];

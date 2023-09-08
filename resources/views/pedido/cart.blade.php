@@ -1,6 +1,8 @@
 @extends('pedido.shop')
   
 @section('content')
+<form action="{{ route('store.pedido')}}" method="POST" autocomplete="off">
+@csrf
 <table id="cart" class="table table-bordered">
     <thead>
         <tr>
@@ -12,10 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        @php $totalPedido = 0 @endphp
-        @if(session('cart'))
-            @foreach(session('cart') as $id => $details)
-            @php $totalPedido += $details['price'] * $details['quantity'] @endphp
+       
                 <tr rowId="{{ $id }}">
                     <td data-th="Product">
                         <div class="row">
@@ -43,22 +42,31 @@
                         <a class="btn btn-outline-danger btn-sm delete-product"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
+                <input type="hidden" name="id_producto" value="{{ $id }}">
+                <input type="hidden" name="nombre_producto" value="{{ $details['name'] }}">
+                <input type="hidden" name="cantidad" value="{{ $details['quantity'] }}">
+                <input type="hidden" name="precio_unitario" value="{{ $details['price'] }}">
+
             @endforeach
         @endif
     </tbody>
     <tfoot>
        <tr>
+        
         <td colspan="5" class="text-right">Total ${{ $totalPedido }}
         </td>
         </tr>
+        <input type="hidden" name="precio_pedido" value="{{ $totalPedido }}">
         <tr>
             <td colspan="5" class="text-right">
-                <a href="{{ url('/dashboard') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a>
-                <button class="btn btn-danger">Checkout</button>
+                <a href="{{ url('/usuario') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a>
+                
             </td>
         </tr>
     </tfoot>
 </table>
+<button type="submit" class="btn btn-danger">Checkout</button>
+</form>
 @endsection
   
 @section('scripts')

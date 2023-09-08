@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('id_usuario')->references('id_usuario')->on('usuario');
             $table->unsignedBigInteger('id_estado_pedido');
             $table->foreign('id_estado_pedido')->references('id_estado_pedido')->on('estado_pedido');
-            $table->integer('precio_total');  
+            $table->integer('precio_pedido');  
         });
     }
 
