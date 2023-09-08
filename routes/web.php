@@ -7,7 +7,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PedidoController;
 use App\Models\Producto;
-
+use App\Http\Controllers\FotoController;
 
 Route::get('/', function () {
     return view('home');
@@ -62,3 +62,5 @@ Route::delete('/delete-cart-product', [PedidoController::class, 'deleteProduct']
 //Route::post('/carrito/agregar', 'CarritoController@agregar')->name('carrito.agregar');
 //Route::post('/carrito/eliminar', 'CarritoController@eliminar')->name('carrito.eliminar');
 //Route::get('/carrito/comprar', 'CarritoController@comprar')->name('carrito.comprar');
+
+Route::get('/obtener-url-foto', [FotoController::class, 'obtenerUrlFoto']);
