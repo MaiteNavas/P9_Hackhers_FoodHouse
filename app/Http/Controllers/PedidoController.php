@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Pedido;
+use App\Models\PedidoProducto;
 
 class PedidoController extends Controller
 {
@@ -26,10 +27,11 @@ class PedidoController extends Controller
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
+                "id" => $id,
                 "name" => $product->nombre_producto,
                 "quantity" => 1,
                 "price" => $product->precio,
-                "description" => $product->descripcion
+                "description" => $product->descripcion,
             ];
         }
         session()->put('cart', $cart);
@@ -40,8 +42,10 @@ class PedidoController extends Controller
         $product = Producto::findOrFail($id);
         $cart = session()->get('cart', []);
         if(isset($cart[$id])) {
-            $cart[$id]['quantity']--;
-        } 
+            if ($cart[$id]['quantity'] > 0) {
+                $cart[$id]['quantity']--;
+            }
+        }
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'El producto se ha eliminado del pedido!');
     }
@@ -52,7 +56,7 @@ class PedidoController extends Controller
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
-            session()->flash('success', 'Product added to cart.');
+            session()->flash('success', 'Producto añadido al pedido');
         }
     }
   
@@ -67,19 +71,34 @@ class PedidoController extends Controller
             session()->flash('success', 'Product successfully deleted.');
         }
     }
+    public function resetCart()
+{
+    session()->forget('cart');
+
+    return redirect()->back()->with('success', 'El carrito se ha reseteado correctamente');
+}
     public function store_pedido(Request $request){
-        Pedido::create([
+        $pedido = Pedido::create([
             'id_usuario' => $request->id_usuario,
             'id_estado_pedido' => $request->id_estado_pedido,
-            'precio_pedido' => $request->precio,            
+            'precio_pedido' => $request->precio_pedido,            
         ]);
-        Pedido::create([
-            'id_producto' => $request->id_producto,
-            'id_pedido' => $request->id_pedido,
-            'cantidad' => $request->cantidad,
-            'precio_unitario' => $request->precio_unitario,              
-        ]);
+        $productos = [];
+        if (session()->has('cart') && is_array(session('cart'))) {
+            foreach (session('cart') as $id => $details) {
+                $productos[$id] = [
+                    'cantidad' => $details['quantity'],
+                    'precio_unitario' => $details['price'],
+                ];
+            }
+        }    
+        $pedido->producto()->attach($productos);
+        session()->forget('cart');
 
-
+        return view('pedido.confirm');
+    }
+    public function show_pedidos(){
+        $pedidos = Pedido::all();
+        return view('pedido.mis_pedidos', compact('pedidos'));
     }
 }
