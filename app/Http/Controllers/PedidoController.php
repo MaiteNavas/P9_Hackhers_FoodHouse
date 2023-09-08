@@ -42,8 +42,10 @@ class PedidoController extends Controller
         $product = Producto::findOrFail($id);
         $cart = session()->get('cart', []);
         if(isset($cart[$id])) {
-            $cart[$id]['quantity']--;
-        } 
+            if ($cart[$id]['quantity'] > 0) {
+                $cart[$id]['quantity']--;
+            }
+        }
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'El producto se ha eliminado del pedido!');
     }
@@ -94,5 +96,9 @@ class PedidoController extends Controller
         session()->forget('cart');
 
         return view('pedido.confirm');
+    }
+    public function show_pedidos(){
+        $pedidos = Pedido::all();
+        return view('pedido.mis_pedidos', compact('pedidos'));
     }
 }

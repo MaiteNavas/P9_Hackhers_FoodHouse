@@ -30,12 +30,9 @@
                     <td data-th="Price">${{ $details['price'] }}</td>
                     <td data-th="Quantity">
                         <div class="input-group">
-                            <p type="number" class="form-control quantity" value="{{ $details['quantity'] }}" min="1">{{ $details['quantity'] }}</p>
-                            <div class="input-group-append">
-                                 <a href="{{ route('removeProduct.to.cart', $id) }}" class="btn btn-outline-secondary update-quantity">-</a>
+                            <a href="{{ route('removeProduct.to.cart', $id) }}" class="btn btn-outline-secondary update-quantity">-</a>
+                            <input type="number" class="form-control quantity" value="{{ $details['quantity'] }}" min="1" readonly>
                             <a href="{{ route('addProduct.to.cart', $id) }}" class="btn btn-outline-secondary update-quantity">+</a>
-                            
-                            </div>
                         </div>
                     </td>
                     @php $total = 0 @endphp

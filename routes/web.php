@@ -46,13 +46,15 @@ Route::controller(ProductoController::class)->group(function(){
 });
 
 Route::controller(PedidoController::class)->group(function(){    
-    Route::get('/usuario','index');  
+    Route::get('/usuario','index')->name('index.usuario');
+    Route::get('/usuario/mis_pedidos','show_pedidos')->name('pedidos.usuario'); 
     Route::get('/shopping-cart','productCart')->name('shopping.cart');
     Route::get('/product/{id}','addProducttoCart')->name('addProduct.to.cart');
     Route::get('/product/remove/{id}','removeProducttoCart')->name('removeProduct.to.cart');
     Route::patch('/update-shopping-cart','updateCart')->name('update.shopping.cart');
     Route::delete('/delete-cart-product','deleteProduct')->name('delete.cart.product');
     Route::post('/store_pedido','store_pedido')->name('store.pedido');
+    
     //Route::get('/confirm-cart','store_pedido')->name('confirm.cart');
 });
    

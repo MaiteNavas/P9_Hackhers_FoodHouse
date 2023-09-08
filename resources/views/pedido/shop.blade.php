@@ -11,7 +11,9 @@
 <div class="container mt-5">
     <h2 class="mb-3">Food for home</h2>
     <div class="col-12">
-        <div class="dropdown" >
+  
+            <a class="btn custom-btn" href="{{ route('index.usuario')}}">Inicio</a>
+            <a class="btn custom-btn" href="{{ route('pedidos.usuario')}}">Mis Pedidos</a>
             <a class="btn btn-outline-dark" href="{{ route('shopping.cart') }}">
                 <i class="fa-solid fa-cart-shopping"></i> Pedido 
                 <span class="badge text-bg-danger">

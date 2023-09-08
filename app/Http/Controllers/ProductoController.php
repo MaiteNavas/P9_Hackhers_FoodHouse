@@ -50,14 +50,7 @@ class ProductoController extends Controller
         $producto->delete();
         return redirect()->route('producto.index');
     }
-
-    public function show_producto(){
-        $productos = Producto::all($columns = ['*']);
- 
-        return view('usuario.index_usuario',compact('productos'));
-    }
-
-
+    
 
 }
 
