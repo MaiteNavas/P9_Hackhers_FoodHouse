@@ -15,18 +15,13 @@
             <a class="btn btn-outline-dark" href="{{ route('shopping.cart') }}">
                 <i class="fa-solid fa-cart-shopping"></i> Pedido 
                 <span class="badge text-bg-danger">
-
-
-                @php
-                    $total = 0;
-                    $cart = session('cart'); 
-                    if ($cart && is_array($cart)) {
-                        foreach ($cart as $id => $details) {
-                            $total += $details['quantity'];
-                        }
-                    }
-                    @endphp
-                    {{  $total }}
+                @php $total = 0 @endphp
+                    @if(session()->has('cart') && is_array(session('cart')))
+                    @foreach(session('cart') as $id => $details)
+                        @php $total += $details['quantity'] @endphp   
+                    @endforeach
+                    @endif
+                    {{ $total }}
                 </span>   
             </a>
         </div>
