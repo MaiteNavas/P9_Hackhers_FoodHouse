@@ -53,7 +53,6 @@ Route::controller(PedidoController::class)->group(function(){
     Route::patch('/update-shopping-cart','updateCart')->name('update.shopping.cart');
     Route::delete('/delete-cart-product','deleteProduct')->name('delete.cart.product');
     Route::post('/store_pedido','store_pedido')->name('store.pedido');
-    Route::post('/store_pedido_producto','store_pedido_producto')->name('store.product');
     //Route::get('/confirm-cart','store_pedido')->name('confirm.cart');
 });
    

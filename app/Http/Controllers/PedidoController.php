@@ -69,18 +69,29 @@ class PedidoController extends Controller
             session()->flash('success', 'Product successfully deleted.');
         }
     }
+    public function resetCart()
+{
+    session()->forget('cart');
+
+    return redirect()->back()->with('success', 'El carrito se ha reseteado correctamente');
+}
     public function store_pedido(Request $request){
         $pedido = Pedido::create([
             'id_usuario' => $request->id_usuario,
             'id_estado_pedido' => $request->id_estado_pedido,
             'precio_pedido' => $request->precio_pedido,            
         ]);
-        PedidoProducto::create([
-            'id_producto' => $request->id_producto,
-            'id_pedido' => $pedido->id_pedido,
-            'cantidad' => $request->cantidad,
-            'precio_unitario' => $request->precio_unitario,              
-        ]);
+        $productos = [];
+        if (session()->has('cart') && is_array(session('cart'))) {
+            foreach (session('cart') as $id => $details) {
+                $productos[$id] = [
+                    'cantidad' => $details['quantity'],
+                    'precio_unitario' => $details['price'],
+                ];
+            }
+        }    
+        $pedido->producto()->attach($productos);
+        session()->forget('cart');
 
         return view('pedido.confirm');
     }

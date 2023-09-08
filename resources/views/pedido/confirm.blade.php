@@ -2,6 +2,8 @@
   
 @section('content')
 
+<h3>Pedido realizado correctamente</h3>
+
 
 
 

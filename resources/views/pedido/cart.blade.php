@@ -14,6 +14,10 @@
         </tr>
     </thead>
     <tbody>
+    @php $totalPedido = 0 @endphp
+        @if(session('cart'))
+            @foreach(session('cart') as $id => $details)
+            @php $totalPedido += $details['price'] * $details['quantity'] @endphp
        
                 <tr rowId="{{ $id }}">
                     <td data-th="Product">
@@ -46,7 +50,6 @@
                 <input type="hidden" name="nombre_producto" value="{{ $details['name'] }}">
                 <input type="hidden" name="cantidad" value="{{ $details['quantity'] }}">
                 <input type="hidden" name="precio_unitario" value="{{ $details['price'] }}">
-
             @endforeach
         @endif
     </tbody>
@@ -59,13 +62,14 @@
         <input type="hidden" name="precio_pedido" value="{{ $totalPedido }}">
         <tr>
             <td colspan="5" class="text-right">
-                <a href="{{ url('/usuario') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a>
+                <a href="{{ url('/usuario') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continuar con la compra</a>
                 
             </td>
         </tr>
     </tfoot>
 </table>
-<button type="submit" class="btn btn-danger">Checkout</button>
+<input type="hidden" name="id_estado_pedido" value=1>
+<button type="submit" class="btn btn-danger">Finalizar pedido</button>
 </form>
 @endsection
   
