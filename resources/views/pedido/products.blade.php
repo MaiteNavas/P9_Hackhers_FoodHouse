@@ -13,9 +13,9 @@
     </select>
 </div>
 
-<div class="row" id= "table">
+<div class="row" id= "product-container">
     @foreach($products as $product)
-        <div class="col-md-3 col-6 mb-4">
+        <div class="col-md-3 col-6 mb-4 product" data-categoria="{{ $product->categoria->id_categoria }}">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">{{ $product->nombre_producto }}</h4>
@@ -42,33 +42,26 @@
 
 @section('scripts')
 
-<script type="text/javascript">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    $('#rolFilter').on('change', function () {
+        var selectedCategoria = $(this).val();
 
-            document.addEventListener("DOMContentLoaded", function() {
-            var table = document.getElementById("table");
-            var rows = Array.from(table.getElementById("categorias")).slice(1);
-            var rolFilter = document.getElementById("rolFilter");
+        // Oculta todos los productos
+        $('.product').hide();
 
-            rolFilter.addEventListener("change", function() {
-                filterTableByRol();
-            });
-
-            function filterTableByRol() {
-                var selectedValue = rolFilter.value;
-                for (var i = 0; i < rows.length; i++) {
-                    var rowRol = rows[i].getElementById("categorias")[0].innerText;
-                    if (selectedValue === "all" || rowRol === selectedValue) {
-                        rows[i].style.display = "";
-                    } else {
-                        rows[i].style.display = "none";
-                    }
-                }
-            }
-
-            filterTableByRol();
-        });
-
+        if (selectedCategoria === 'all') {
+            // Si se selecciona "Todas", muestra todos los productos
+            $('.product').show();
+        } else {
+            // Muestra solo los productos que pertenecen a la categoría seleccionada
+            $('.product[data-categoria="' + selectedCategoria + '"]').show();
+        }
+    });
+});
 </script>
+
 
 @endsection
 
