@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <a class="btn custom-btn" href="{{ route('producto.index')}}">Volver</a>
+    <a class="btn custom-btn" href="/admin">Volver</a>
     <a class="btn custom-btn" href="{{ route('producto.create')}}">Crear Producto</a>
     <h1>LISTA DE PRODUCTOS</h1>
     @forelse($productos as $producto)

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Pedido;
 use App\Models\PedidoProducto;
+use App\Models\EstadoPedido;
 
 class PedidoController extends Controller
 {
@@ -100,5 +101,21 @@ class PedidoController extends Controller
     public function show_pedidos(){
         $pedidos = Pedido::all();
         return view('pedido.mis_pedidos', compact('pedidos'));
+    }
+    public function show_pedidos_admin(){
+        $pedidos = Pedido::all();
+        return view('admin.pedidos.index_pedidos', compact('pedidos'));
+    }
+    public function edit_pedido_admin(Pedido $pedido){
+        $pedidos = Pedido::all($columns = ['*']);
+        $estadoPedidos = EstadoPedido::all($columns = ['*']);
+        return view('admin.pedidos.edit_pedidos',compact('pedido','estadoPedidos'));
+    }
+    public function update_pedido_admin(Request $request,Pedido $pedido){
+        $pedido->update([
+            'id_estado_pedido' => $request->id_estado_pedido,
+        ]);
+
+        return redirect()->route('pedidos.index');
     }
 }

@@ -16,6 +16,6 @@ class EstadoPedido extends Model
     ];
     public function pedido(): BelongsTo
    {
-       return $this->belongsTo(Pedido::class);
+       return $this->belongsTo(Pedido::class, 'id_estado_pedido','id_pedido');
    }
 }

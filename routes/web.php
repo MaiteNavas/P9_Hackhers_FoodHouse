@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CarritoController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CategoriaController;
@@ -41,20 +41,19 @@ Route::controller(ProductoController::class)->group(function(){
     Route::get('/admin/producto/edit/{producto}', 'edit_producto')->name('producto.edit');
     Route::post('/admin/producto/update/{producto}', 'update_producto')->name('producto.update');
     Route::delete('/admin/producto/delete/{producto}', 'delete_producto')->name('producto.delete');
-    //Route::get('/usuario', 'show_producto')->name('usuario.producto.index');
-
 });
 
 Route::controller(PedidoController::class)->group(function(){    
     Route::get('/usuario','index')->name('index.usuario');
-    Route::get('/usuario/mis_pedidos','show_pedidos')->name('pedidos.usuario'); 
+    Route::get('/usuario/mis_pedidos','show_pedidos')->name('pedidos.usuario');
+    Route::get('/admin/pedidos','show_pedidos_admin')->name('pedidos.index'); 
+    Route::get('/admin/pedidos/edit/{pedido}', 'edit_pedido_admin')->name('pedidos.edit');
+    Route::post('/admin/pedidos/update/{pedido}', 'update_pedido_admin')->name('pedidos.update'); 
     Route::get('/shopping-cart','productCart')->name('shopping.cart');
     Route::get('/product/{id}','addProducttoCart')->name('addProduct.to.cart');
     Route::get('/product/remove/{id}','removeProducttoCart')->name('removeProduct.to.cart');
     Route::patch('/update-shopping-cart','updateCart')->name('update.shopping.cart');
     Route::delete('/delete-cart-product','deleteProduct')->name('delete.cart.product');
     Route::post('/store_pedido','store_pedido')->name('store.pedido');
-    
-    //Route::get('/confirm-cart','store_pedido')->name('confirm.cart');
 });
    
