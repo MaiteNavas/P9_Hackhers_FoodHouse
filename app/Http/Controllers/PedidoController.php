@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Pedido;
+use App\Models\Categoria;
 use App\Models\PedidoProducto;
 use App\Models\EstadoPedido;
 
@@ -13,7 +14,9 @@ class PedidoController extends Controller
     public function index()
     {
         $products = Producto::all();
-        return view('pedido.products', compact('products'));
+        $categorias = Categoria::all($columns = ['*']);
+        return view('pedido.products', compact('products', 'categorias'));
+        
     }
   
     public function productCart()
