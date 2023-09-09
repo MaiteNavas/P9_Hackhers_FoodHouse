@@ -10,7 +10,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\AwsS3V3\PortableVisibilityConverter;
 use App\Http\Controllers\FotoController;
-
+use Aws\S3\S3Client;
 
 class CategoriaController extends Controller
 {
@@ -19,23 +19,25 @@ class CategoriaController extends Controller
  
         return view('admin.categoria.index_categoria',compact('categorias'));
     }
-    public function create_categoria(){
-        return view('admin.categoria.create_categoria');
-    }
-    // public function store_categoria(Request $request){
-    //     Categoria::create([
-    //         'id_categoria' => $request->id_categoria,
-    //         'nombre_categoria' => $request->nombre_categoria,
-    //     ]);
-    //     return redirect()->route('categoria.index');
-    // }
-    // public function edit_categoria(Categoria $categoria){
-        
-    //     return view('admin.categoria.edit_categoria',compact('categoria'));
-    // }
+    public function create_categoria()
+    {
+        $rutasFotosEnS3 = [
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Bebidas.jpg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Carnes.jpeg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Desayunos.jpeg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Ensaladas.jpg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Entrantes.jpg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Pastas.jpeg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Pescados.webp',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Postres.webp',
 
-    
-    public function update_categoria(Request $request,Categoria $categoria){
+        ];
+
+        return view('admin.categoria.create_categoria', compact('rutasFotosEnS3'));
+    }
+
+
+       public function update_categoria(Request $request,Categoria $categoria){
         $categoria->update([
             'id_categoria' => $request->id_categoria,
             'nombre_categoria' => $request->nombre_categoria,
@@ -48,32 +50,52 @@ class CategoriaController extends Controller
         return redirect()->route('categoria.index');
     }
 
+    public function store_categoria(Request $request)
+    {
+        $request->validate([
+            'nombre_categoria' => 'required|string|max:255',
+            'imagen_categoria' => 'required|url', 
+        ]);
 
-//esto es una prueba
+        $s3 = new S3Client([
+            'version' => 'latest',
+            'region'  => 'eu-north-1', 
+            'credentials' => [
+                'key'    => 'AKIA6B235Y4PHMHLESEU',
+                'secret' => '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',
+            ],
+        ]);
 
+        $bucket = 'hackhers';
+        $rutaFotoEnS3 = $request->input('imagen_categoria');
 
-// public function store_categoria(Request $request)
-// {
-//     $request->validate([
-//         'nombre_categoria' => 'required|string|max:255',
-//         'imagen_categoria' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ajusta las reglas de validación según tus necesidades
-//     ]);
+        $urlFoto = $s3->getObjectUrl($bucket, $rutaFotoEnS3);
 
-//     // Subir la imagen a AWS S3 y obtener su URL
-//     if ($request->hasFile('imagen_categoria')) {
-//         $imagenPath = $request->file('imagen_categoria')->store('categorias', 's3'); // 'categorias' es la carpeta en S3 donde se almacenará la imagen
-//         $imagenUrl = Storage::disk('s3')->url($imagenPath);
-//     } else {
-//         $imagenUrl = null; // No se cargó ninguna imagen
-//     }
+     
+        $categoria = Categoria::create([
+            'nombre_categoria' => $request->input('nombre_categoria'),
+            'ruta_foto' => $urlFoto,
+        ]);
 
-//     // Crear la categoría en la base de datos
-//     Categoria::create([
-//         'nombre' => $request->input('nombre_categoria'),
-//         'imagen_url' => $imagenUrl,
-//     ]);
+        return redirect()->route('categoria.index')->with('success', 'Categoría creada con éxito.');
+    }
+    public function edit_categoria($id)
+{
+    $categoria = Categoria::findOrFail($id);
 
-//     return redirect()->route('categoria.index')->with('success', 'Categoría creada con éxito.');
-// }
-// 
+    $rutasFotosEnS3 = [
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Bebidas.jpg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Carnes.jpeg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Desayunos.jpeg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Ensaladas.jpg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Entrantes.jpg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Pastas.jpeg',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Pescados.webp',
+            'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Postres.webp',
+
+    ];
+
+    return view('admin.categoria.edit_categoria', compact('categoria', 'rutasFotosEnS3'));
+}
+
 }

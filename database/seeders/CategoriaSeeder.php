@@ -13,13 +13,13 @@ class CategoriaSeeder extends Seeder
     public function run(): void
     {
         Categoria::create(['nombre_categoria' => 'Desayunos','imagen' => 'Desayunos']);
-        Categoria::create(['nombre_categoria' => 'Entrantes']);
-        Categoria::create(['nombre_categoria' => 'Ensaladas']);
-        Categoria::create(['nombre_categoria' => 'Pastas']);
-        Categoria::create(['nombre_categoria' => 'Carnes']);
-        Categoria::create(['nombre_categoria' => 'Pescados']);
-        Categoria::create(['nombre_categoria' => 'Postres']);
-        Categoria::create(['nombre_categoria' => 'Bebidas']);
+        Categoria::create(['nombre_categoria' => 'Entrantes','imagen' => 'Entrantes']);
+        Categoria::create(['nombre_categoria' => 'Ensaladas','imagen' => 'Ensaladas']);
+        Categoria::create(['nombre_categoria' => 'Pastas','imagen' => 'Pastas']);
+        Categoria::create(['nombre_categoria' => 'Carnes','imagen' => 'Carnes']);
+        Categoria::create(['nombre_categoria' => 'Pescados','imagen' => 'Pescados']);
+        Categoria::create(['nombre_categoria' => 'Postres','imagen' => 'Postres']);
+        Categoria::create(['nombre_categoria' => 'Bebidas','imagen' => 'Bebidas']);
 
     }
 }

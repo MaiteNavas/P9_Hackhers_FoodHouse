@@ -9,11 +9,10 @@ use App\Http\Controllers\FotoController;
 class Categoria extends Model
 {
     //use HasFactory;
+    protected $guarded = [];
     protected $table = 'categoria';
     protected $primaryKey = 'id_categoria';
     public $timestamps = false;
-    protected $fillable =[
-        "nombre_categoria"
-    ];
+    protected $fillable = ['nombre_categoria', 'ruta_foto'];
 
 }

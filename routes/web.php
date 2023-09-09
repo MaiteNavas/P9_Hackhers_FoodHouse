@@ -27,15 +27,15 @@ Route::controller(UsuarioController::class)->group(function(){
 });
 
 
-Route::controller(CategoriaController::class)->group(function(){
-    Route::get('/admin/categoria', 'index_categoria')->name('categoria.index');
-   // Route::get('/admin/producto/create', 'index_categoria')->name('categoria.index');
-    Route::get('/admin/categoria/create', 'create_categoria')->name('categoria.create');
-    Route::post('/admin/categoria/store', 'store_categoria')->name('categoria.store');
-    Route::get('/admin/categoria/edit/{categoria}', 'edit_categoria')->name('categoria.edit');
-    Route::post('/admin/categoria/update/{categoria}', 'update_categoria')->name('categoria.update');
-    Route::delete('/admin/categoria/delete/{categoria}', 'delete_categoria')->name('categoria.delete');
-});
+// Route::controller(CategoriaController::class)->group(function(){
+//     Route::get('/admin/categoria', 'index_categoria')->name('categoria.index');
+//    // Route::get('/admin/producto/create', 'index_categoria')->name('categoria.index');
+//     Route::get('/admin/categoria/create', 'create_categoria')->name('categoria.create');
+//     Route::post('/admin/categoria/store', 'store_categoria')->name('categoria.store');
+//     Route::get('/admin/categoria/edit/{categoria}', 'edit_categoria')->name('categoria.edit');
+//     Route::post('/admin/categoria/update/{categoria}', 'update_categoria')->name('categoria.update');
+//     Route::delete('/admin/categoria/delete/{categoria}', 'delete_categoria')->name('categoria.delete');
+// });
 
 Route::controller(ProductoController::class)->group(function(){
     Route::get('/admin/producto', 'index_producto')->name('producto.index');
@@ -63,4 +63,14 @@ Route::delete('/delete-cart-product', [PedidoController::class, 'deleteProduct']
 //Route::post('/carrito/eliminar', 'CarritoController@eliminar')->name('carrito.eliminar');
 //Route::get('/carrito/comprar', 'CarritoController@comprar')->name('carrito.comprar');
 
-Route::get('/obtener-url-foto', [FotoController::class, 'obtenerUrlFoto']);
+ Route::get('/obtener-url-foto', [FotoController::class, 'obtenerUrlFoto']);
+
+Route::resource('/admin/categoria', CategoriaController::class)->names([
+       'index' => 'categoria.index',
+       'create' => 'categoria.create',
+       'store' => 'categoria.store',
+       'edit' => 'categoria.edit',
+       'update' => 'categoria.update',
+       'destroy' => 'categoria.destroy',
+   ]);
+

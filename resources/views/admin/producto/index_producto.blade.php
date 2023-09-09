@@ -13,8 +13,9 @@
             {{ $producto->precio }}
             {{ $producto->id_estado_producto }}
         </h3>
-            <a class="btn custom-btn" href="{{ route('producto.edit',$producto->id_producto)}}">Editar</a>
-            <form action="{{ route('producto.delete', $producto->id_producto) }}" method="POST">
+        <img class="producto-imagen" src="{{ $producto->ruta_foto_producto }}" alt="Foto del Producto">
+                <a class="btn custom-btn" href="{{ route('producto.edit',$producto->id_producto)}}">Editar</a>
+                <form action="{{ route('producto.delete', $producto->id_producto) }}" method="POST">
                 @csrf
                 @method("DELETE")
                 <button type="submit" class="btn custom-btn">Eliminar</button>
