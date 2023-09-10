@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<a class="btn custom-btn" href="/admin">Volver</a>
+<a class="btn custom-btn small" href="/admin">Volver</a>
 <table id="cart" class="table table-bordered">
     <thead>
         <tr>
