@@ -21,7 +21,7 @@
     <div class="carousel-item">
       <img src="{{ asset('images/tupper.jpeg') }}" class="d-block w-100" alt="..." style="max-width: 100%; max-height: 400px; height: auto">
       <div class="carousel-caption d-none d-md-block">
-        <h5>¿Hambre de conocer más?</h5>
+        <h5>¿Hambre de saber más?</h5>
         <p>¡Apúntate a nuestra newsletter!</p>
         <a class="btn custom-btn btn-lng">AQUIII</a>
       </div>
