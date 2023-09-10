@@ -54,9 +54,17 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
+<<<<<<< HEAD
         ],
 
     ],
+=======
+            'visibility' => 'public',
+        ],
+
+    ],
+    
+>>>>>>> 642f8cc91bec36fb7e37d9772e66be30943d6ffd
 
     /*
     |--------------------------------------------------------------------------

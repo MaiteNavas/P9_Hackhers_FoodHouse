@@ -9,6 +9,7 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
+<<<<<<< HEAD
      *
      * @return void
      */
@@ -20,5 +21,16 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+=======
+     */
+    public function run(): void
+    {
+        $this ->call([
+            CategoriaSeeder::class,
+            EstadoProductoSeeder::class,
+            EstadoPedidoSeeder::class,
+            ProductoSeeder::class
+        ]);
+>>>>>>> 642f8cc91bec36fb7e37d9772e66be30943d6ffd
     }
 }

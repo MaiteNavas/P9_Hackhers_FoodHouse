@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+<<<<<<< HEAD
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -42,3 +43,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 }
+=======
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model 
+{
+
+}
+
+>>>>>>> 642f8cc91bec36fb7e37d9772e66be30943d6ffd

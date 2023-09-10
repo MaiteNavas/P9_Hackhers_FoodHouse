@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\ServiceProvider;
+>>>>>>> 642f8cc91bec36fb7e37d9772e66be30943d6ffd
 
 return [
 
@@ -15,7 +19,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'name' => env('APP_NAME', 'Laravel'),
+=======
+    'name' => env('APP_NAME', 'Food Home'),
+>>>>>>> 642f8cc91bec36fb7e37d9772e66be30943d6ffd
 
     /*
     |--------------------------------------------------------------------------
@@ -154,6 +162,7 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'providers' => [
 
         /*
@@ -182,6 +191,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+=======
+    'providers' => ServiceProvider::defaultProviders()->merge([
+>>>>>>> 642f8cc91bec36fb7e37d9772e66be30943d6ffd
         /*
          * Package Service Providers...
          */
@@ -194,8 +206,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+<<<<<<< HEAD
 
     ],
+=======
+    ])->toArray(),
+>>>>>>> 642f8cc91bec36fb7e37d9772e66be30943d6ffd
 
     /*
     |--------------------------------------------------------------------------
@@ -209,7 +225,11 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+<<<<<<< HEAD
         // 'ExampleClass' => App\Example\ExampleClass::class,
+=======
+        // 'Example' => App\Facades\Example::class,
+>>>>>>> 642f8cc91bec36fb7e37d9772e66be30943d6ffd
     ])->toArray(),
 
 ];
