@@ -7,7 +7,6 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PedidoController;
 use App\Models\Producto;
-use App\Http\Controllers\FotoController;
 
 Route::get('/', function () {
     return view('home');
@@ -62,13 +61,4 @@ Route::controller(PedidoController::class)->group(function(){
     Route::post('/store_pedido','store_pedido')->name('store.pedido');
 });
 
-
-// Route::resource('/admin/categoria', CategoriaController::class)->names([
-//        'index' => 'categoria.index',
-//        'create' => 'categoria.create',
-//        'store' => 'categoria.store',
-//        'edit' => 'categoria.edit',
-//        'update' => 'categoria.update',
-//        'destroy' => 'categoria.destroy',
-//    ]);
 
