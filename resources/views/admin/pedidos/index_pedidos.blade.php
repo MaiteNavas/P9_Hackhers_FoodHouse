@@ -10,12 +10,12 @@
                     <h5 class="card-title">ID: {{ $pedido->id_pedido }}</h5> 
                     <h3 class="card-text"><strong>Total: </strong> €{{ $pedido->precio_pedido }}</h3>
                     <h5 class="card-text"><strong>Estado: </strong> {{ $pedido->estado_pedido->nombre_estado_pedido }}</h5>
-                    <a class="btn custom-btn" href="{{ route('pedidos.edit',$pedido->id_pedido)}}">Editar</a>
+                    <a class="btn custom-btn" href="{{ route('pedidos.edit',$pedido->id_pedido)}}">Cambiar estado</a>
                 </div>
             </div>
         </div>
     @endforeach
-</div>
 
+</div>
 
 @endsection
