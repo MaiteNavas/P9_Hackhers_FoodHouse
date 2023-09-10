@@ -12,6 +12,9 @@ use App\Http\Controllers\PedidoController;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/admin', function () {
+    return view('admin/index_admin');
+});
 
 Route::controller(UsuarioController::class)->group(function(){
     Route::get('/admin/usuario', 'index_usuario')->name('usuario.index');
@@ -22,9 +25,7 @@ Route::controller(UsuarioController::class)->group(function(){
     Route::delete('/admin/usuario/delete/{usuario}', 'delete_usuario')->name('usuario.delete');
 });
 
-Route::get('/admin', function () {
-    return view('admin/index_admin');
-});
+
 Route::controller(CategoriaController::class)->group(function(){
     Route::get('/admin/categoria', 'index_categoria')->name('categoria.index');
     Route::get('/admin/categoria/create', 'create_categoria')->name('categoria.create');
