@@ -1,9 +1,9 @@
-@extends('layouts.app2')
+@extends('layouts.admin')
 
 @section('content')
 
 
-    <div class="center">
+    <div class="center-container">
         <div class="botones">
             <a class="btn custom-btn" href="{{ route('usuario.index')}}">Usuarios</a>
             <a class="btn custom-btn" href="{{ route('categoria.index')}}">Categorias</a>

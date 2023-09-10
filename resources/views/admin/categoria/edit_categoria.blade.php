@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.admin')
 
 @section('content')
     <a class="btn custom-btn" href="{{ route('categoria.index')}}">Volver</a>
@@ -21,5 +21,9 @@
 
             <button type="submit">Guardar Cambios</button>
         </form>
+    </div>
+
+    <div class="center-container">
+       <a class="btn custom-btn" href="{{ url('/admin') }}">Volver</a>
     </div>
 @endsection

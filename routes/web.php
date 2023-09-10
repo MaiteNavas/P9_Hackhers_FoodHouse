@@ -6,7 +6,14 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PedidoController;
-use App\Models\Producto;
+
+//auth
+// use App\Http\Controllers\Auth\LoginController;
+// use App\Http\Controllers\Auth\RegisterController;
+// use App\Http\Controllers\Auth\ForgotPasswordController;
+// use App\Http\Controllers\Auth\ConfirmPasswordController;
+// use App\Http\Controllers\Auth\VerificationController;
+
 
 Route::get('/', function () {
     return view('home');
@@ -60,5 +67,44 @@ Route::controller(PedidoController::class)->group(function(){
     Route::delete('/delete-cart-product','deleteProduct')->name('delete.cart.product');
     Route::post('/store_pedido','store_pedido')->name('store.pedido');
 });
+   
+
+//Rutas login
+//Route::controller(HomeController::class)->group(function(){
+   // Route::get('/auth/index_auth', 'index_auth')->name('auth.index');
+//});
+
+// Route::get('/auth/login/login', function () {
+//     return view('auth.login.login');
+// });
+
+// Auth::routes();
+// // Authentication Routes...
+// Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::post('login', [LoginController::class,'login']);
+// Route::post('logout',  [LoginController::class,'logout'])->name('logout');
+
+// // Registration Routes...
+// //Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+// //Route::post('register', [RegisterController::class, 'register']);
+// Route::get('register', 'UsuarioController@create_usuario')->name('register');
 
 
+
+// // Password Reset Routes...
+// Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+// Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+// Route::get('password/reset/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
+// Route::post('password/reset', [ForgotPasswordController::class, 'reset'])->name('password.update');
+
+// // Confirm Password 
+// Route::get('password/confirm', [ConfirmPasswordController::class, 'showConfirmForm'])->name('password.confirm');
+// Route::post('password/confirm', [ConfirmPasswordController::class, 'confirm']);
+
+// // Email Verification Routes...
+// Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+// Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
+// Route::get('email/resend',  [VerificationController::class, 'resend'])->name('verification.resend');
+
+// // Home
+// Route::get('/home', [app\Http\Controllers\HomeController::class, 'index'])->name('home');
