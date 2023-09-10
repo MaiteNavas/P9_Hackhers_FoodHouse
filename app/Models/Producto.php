@@ -13,9 +13,21 @@ class Producto extends Model
    protected $primaryKey = 'id_producto';
    public $timestamps = false;
    protected $fillable =[
-       "nombre_producto",
-       "descripcion",
-       "precio",
-       'ruta_foto'
+    "id_categoria",
+    "id_estado_producto",
+    "nombre_producto",
+    "descripcion",
+    "precio",
    ];
+   public function categoria(): BelongsTo
+   {
+       return $this->belongsTo(Categoria::class, 'id_categoria');
+   }
+   public function pedido()
+    {
+        return $this->belongsToMany(Pedido::class, 'pedido_producto', 'id_producto', 'id_pedido')
+                    ->withPivot('cantidad', 'precio_unitario');
+    }
+   protected $guarded = [];
+
 }

@@ -12,7 +12,6 @@ class EstadoPedidoSeeder extends Seeder
      */
     public function run(): void
     {   
-        EstadoPedido::create(['nombre_estado_pedido' => 'Carrito']);
         EstadoPedido::create(['nombre_estado_pedido' => 'Creado']);
         EstadoPedido::create(['nombre_estado_pedido' => 'En curso']);
         EstadoPedido::create(['nombre_estado_pedido' => 'Enviado']);
