@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <a class="btn custom-btn" href="{{ route('categoria.index')}}">Volver</a>
+    <a class="btn custom-btn small" href="{{ route('categoria.index')}}">Volver</a>
 
     <div class="container-with-border bg-light">
         <h1>Crear Categoria</h1>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="center-container">
-       <a class="btn custom-btn" href="{{ url('/admin') }}">Volver</a>
+       <a class="btn custom-btn small" href="{{ url('/admin') }}">Volver</a>
     </div>
 @endsection
 
