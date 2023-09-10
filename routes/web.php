@@ -11,6 +11,9 @@ use App\Models\Producto;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/admin', function () {
+    return view('admin/index_admin');
+});
 
 Route::get('/admin', function () {
     return view('admin/index_admin');
@@ -24,6 +27,7 @@ Route::controller(UsuarioController::class)->group(function(){
     Route::post('/admin/usuario/update/{usuario}', 'update_usuario')->name('usuario.update');
     Route::delete('/admin/usuario/delete/{usuario}', 'delete_usuario')->name('usuario.delete');
 });
+
 
 Route::controller(CategoriaController::class)->group(function(){
     Route::get('/admin/categoria', 'index_categoria')->name('categoria.index');

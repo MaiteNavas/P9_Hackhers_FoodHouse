@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('nombre_producto');
             $table->text('descripcion', );
             $table->decimal('precio', 5, 2);
+            $table->string('ruta_foto_producto')->nullable();
         });
 
           //$table->id();
