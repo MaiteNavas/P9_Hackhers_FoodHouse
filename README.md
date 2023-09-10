@@ -34,37 +34,43 @@ Requisitos funcionales Superadmin:
 •	Agregar, editar o eliminar platos. Categorización de platos.Recepción de órdenes. Análisis de ventas.  
   
 <h4> 4. 💻 Requisitos :</h4>
- - La aplicación debe tener una cobertura de QA mínimo al 50%
+- La aplicación debe tener una cobertura de QA mínimo al 50%
 - Lenguaje de programación: Utilizar PHP Laravel para el desarrollo del backend.
 - Base de datos: Utilizar MySQL para almacenar y gestionar los datos de las tareas y los usuarios.
 - Interfaz web: Crear una interfaz web utilizando Blade como tecnología principal que implementa bootstrap para permitir a los usuarios interactuar con la aplicación
 - Arquitectura MVC: Utilizar el patrón de diseño Modelo-Vista-Controlador para organizar y estructurar el código de la aplicación de manera modular y escalable.
 - Validación de formularios: Realizar validación de datos en el lado del servidor y del usuario para garantizar la integridad y la coherencia de los datos ingresados por los usuarios
 
-  <h4> 5.  🛠️ Abre y ejecuta el Proyecto:</h4>
-   
-   - •	http://127.0.0.1:8000/admin/categoria
-   - $ git clone (https://github.com/MaiteNavas/P9_Hackhers_FoodHouse)
-   
-  <h4> 6. ⚙️ Tecnologías Utilizadas:</h4>
+<h4> 5.  🛠️ Abre y ejecuta el Proyecto:</h4>
+- $ git clone (https://github.com/MaiteNavas/P9_Hackhers_FoodHouse)
 
-    Lista de tecnologías utilizadas en este proyecto:
+<h2> Debes realizar las siguientes instalaciones:</h2>
+     
+- $ git clone (https://github.com/MaiteNavas/P9_Hackhers_FoodHouse)
+- composer create-project laravel/laravel FoodHouse
+- composer require league/flysystem-aws-s3-v3 "^3.0" --with-all-dependencies
+- composer require laravel/ui
+- php artisan ui bootstrap
+- npm install && npm run dev
 
-   - 👨💻 JavaScript, PHP, Laravel
-   - ⚙️ HTML
-   - 👁️ CSS, Bootstrap, Blade
-   - 💽 MySQL, XAMPP
 
-  <h4> Informacion para crear tus tablas en MySQL:</h4>
-   <img src="https://github.com/yzadeveloper/FactoriaCRM/blob/main/src/assets/images/MySQL.PNG"> 
+<h4> 6. ⚙️ Tecnologías Utilizadas:</h4>
 
-FALTA LAS INSTALACIONES Y LOS MAPAS Y DIAGRAMAS
+Lista de tecnologías utilizadas en este proyecto:
 
-   
-   ## Autoras
+- 👨💻 JavaScript, PHP, Laravel
+- ⚙️ HTML
+- 👁️ CSS, Bootstrap, Blade
+- 💽 MySQL, XAMPP, AWS S3
+
+<h4> Informacion para crear tus tablas en MySQL:</h4>
+
+<img src="https://github.com/MaiteNavas/P9_Hackhers_FoodHouse/assets/132447020/f5863ca6-97b1-4871-8dba-3268da142b3d">
+  
+
+ 
+   ## Creadoras
 
 | [<img src="https://avatars.githubusercontent.com/u/132446914?v=4" width=115><br><sub>Laura Prat</sub>](https://github.com/lauuloulu) | [<img src="https://avatars.githubusercontent.com/u/132447016?v=4" width=115><br><sub>Maite Navas</sub>](https://github.com/MaiteNavas) | [<img src="https://avatars.githubusercontent.com/u/67557714?v=4" width=115><br><sub>Yolanda Zahonero</sub>](https://github.com/yzadeveloper) | [<img src="https://avatars.githubusercontent.com/u/108815965?v=4" width=115><br><sub>Andreina</sub>](https://github.com/Andre-889) | [<img src="https://avatars.githubusercontent.com/u/132447020?v=4" width=115><br><sub>Magdalena Filgueira</sub>](https://github.com/MaggieFilgueira) 
 | :---: | :---: | :---: | :---: | :---: |
  
-📁
-   -
