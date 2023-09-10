@@ -26,14 +26,14 @@
             @endforeach
             </select>
             </div>
-            <!-- <div class="mb-3">
+            <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Estado del Producto</label>
             <select name="id_estado_producto" required class="form-control" id="estado_producto">
             @foreach ($estadoProductos as $estadoProducto)
                 <option value="{{$estadoProducto->id_estado_producto}}">{{$estadoProducto->nombre_estado_producto}}</option>
             @endforeach
             </select>
-            </div>               -->
+            </div>              
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Descripción</label>
                 <input type="text" name="descripcion" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

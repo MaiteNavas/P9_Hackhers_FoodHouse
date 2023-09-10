@@ -133,7 +133,7 @@
         public function show_producto(){
             $productos = Producto::all($columns = ['*']);
     
-            return view('usuario.index_usuario',compact('productos'));
+            return view('admin.usuario.index_usuario',compact('productos'));
         }
 
 

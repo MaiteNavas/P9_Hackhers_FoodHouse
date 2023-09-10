@@ -12,7 +12,7 @@ class CategoriaSeeder extends Seeder
      */
     public function run(): void
     {
-        Categoria::create(['nombre_categoria' => 'Desayunos','imagen' => 'Desayunos']);
+        Categoria::create(['nombre_categoria' => 'Desayunos','ruta_foto' => 'https://hackhers.s3.eu-north-1.amazonaws.com/categorias/Desayunos.jpeg']);
         Categoria::create(['nombre_categoria' => 'Entrantes','imagen' => 'Entrantes']);
         Categoria::create(['nombre_categoria' => 'Ensaladas','imagen' => 'Ensaladas']);
         Categoria::create(['nombre_categoria' => 'Pastas','imagen' => 'Pastas']);

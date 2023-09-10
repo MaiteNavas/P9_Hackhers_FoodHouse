@@ -46,7 +46,6 @@ Route::controller(ProductoController::class)->group(function(){
     Route::post('/admin/producto/update/{producto}', 'update_producto')->name('producto.update');
     Route::delete('/admin/producto/delete/{producto}', 'delete_producto')->name('producto.delete');
 });
-
 Route::controller(PedidoController::class)->group(function(){    
     Route::get('/usuario','index')->name('index.usuario');
     Route::get('/usuario/mis_pedidos','show_pedidos')->name('pedidos.usuario');
@@ -61,15 +60,14 @@ Route::controller(PedidoController::class)->group(function(){
     Route::delete('/delete-cart-product','deleteProduct')->name('delete.cart.product');
     Route::post('/store_pedido','store_pedido')->name('store.pedido');
 });
-   
- Route::get('/obtener-url-foto', [FotoController::class, 'obtenerUrlFoto']);
 
-Route::resource('/admin/categoria', CategoriaController::class)->names([
-       'index' => 'categoria.index',
-       'create' => 'categoria.create',
-       'store' => 'categoria.store',
-       'edit' => 'categoria.edit',
-       'update' => 'categoria.update',
-       'destroy' => 'categoria.destroy',
-   ]);
+
+// Route::resource('/admin/categoria', CategoriaController::class)->names([
+//        'index' => 'categoria.index',
+//        'create' => 'categoria.create',
+//        'store' => 'categoria.store',
+//        'edit' => 'categoria.edit',
+//        'update' => 'categoria.update',
+//        'destroy' => 'categoria.destroy',
+//    ]);
 

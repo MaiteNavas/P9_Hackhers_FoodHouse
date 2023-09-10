@@ -28,6 +28,5 @@ class Producto extends Model
         return $this->belongsToMany(Pedido::class, 'pedido_producto', 'id_producto', 'id_pedido')
                     ->withPivot('cantidad', 'precio_unitario');
     }
-   protected $guarded = [];
 
 }
