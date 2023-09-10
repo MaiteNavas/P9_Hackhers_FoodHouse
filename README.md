@@ -66,7 +66,8 @@ Lista de tecnologías utilizadas en este proyecto:
 <h4> Informacion para crear tus tablas en MySQL:</h4>
 
 <img src="https://github.com/MaiteNavas/P9_Hackhers_FoodHouse/assets/132447020/f5863ca6-97b1-4871-8dba-3268da142b3d">
-  
+<img src="https://github.com/MaiteNavas/P9_Hackhers_FoodHouse/assets/132447020/899973ec-ab84-49c5-b259-35a008073596">
+
 
  
    ## Creadoras
