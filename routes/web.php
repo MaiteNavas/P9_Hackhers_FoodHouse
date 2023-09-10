@@ -54,7 +54,8 @@ Route::controller(PedidoController::class)->group(function(){
     Route::get('/usuario/mis_pedidos','show_pedidos')->name('pedidos.usuario');
     Route::get('/admin/pedidos','show_pedidos_admin')->name('pedidos.index'); 
     Route::get('/admin/pedidos/edit/{pedido}', 'edit_pedido_admin')->name('pedidos.edit');
-    Route::post('/admin/pedidos/update/{pedido}', 'update_pedido_admin')->name('pedidos.update'); 
+    Route::post('/admin/pedidos/update/{pedido}', 'update_pedido_admin')->name('pedidos.update');
+    Route::get('/admin/ventas','ventas_pedidos_admin')->name('ventas.index');
     Route::get('/shopping-cart','productCart')->name('shopping.cart');
     Route::get('/product/{id}','addProducttoCart')->name('addProduct.to.cart');
     Route::get('/product/remove/{id}','removeProducttoCart')->name('removeProduct.to.cart');

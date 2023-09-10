@@ -1,4 +1,4 @@
-@extends('pedido.shop')
+@extends('usuario.shop')
    
 @section('content')
 
@@ -12,27 +12,20 @@
             @endforeach
     </select>
 </div>
+<br>
 
 <div class="row" id= "product-container">
     @foreach($products as $product)
         <div class="col-md-3 col-6 mb-4 product" data-categoria="{{ $product->categoria->id_categoria }}">
             <div class="card">
                 <div class="card-body">
-                    <p>{{ $product->categoria->nombre_categoria }}</p>
+                    <i>{{ $product->categoria->nombre_categoria }}</i>
                     <h4 class="card-title">{{ $product->nombre_producto }}</h4>
                     <p>{{ $product->descripcion }}</p>
                     <input id= "categorias" value= "{{ $product->categoria->id_categoria }}" hidden></input>
-                    <p>{{ $product->categoria->nombre_categoria }}</p>
-                    <p class="card-text"><strong>Price: </strong> ${{ $product->precio }}</p>
-                    <div class="input-group">
-                            
-                            <div class="input-group-append">
-                                 <a href="{{ route('removeProduct.to.cart', $product->id_producto) }}" class="btn btn-outline-secondary update-quantity">-</a>
-                            <a href="{{ route('addProduct.to.cart', $product->id_producto) }}" class="btn btn-outline-secondary update-quantity">+</a>
-                            
-                            </div>
-                        </div>
-                    <p class="btn-holder"><a href="{{ route('addProduct.to.cart', $product->id_producto) }}" class="btn btn-outline-danger">Add to cart</a> </p>
+                    <p class="card-text"><strong>Precio: </strong> {{ $product->precio }} €</p>
+                    
+                    <p class="btn-holder"><a href="{{ route('addProduct.to.cart', $product->id_producto) }}" class="btn btn-outline-success">Añadir al pedido</a> </p>
                 </div>
             </div>
         </div>

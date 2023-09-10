@@ -1,4 +1,4 @@
-@extends('pedido.shop')
+@extends('usuario.shop')
   
 @section('content')
 <form action="{{ route('store.pedido')}}" method="POST" autocomplete="off">
@@ -23,11 +23,11 @@
                     <td data-th="Product">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h4 class="nomargin">{{ $details['name'] }}</h4>
+                                <p class="nomargin">{{ $details['name'] }}</p>
                             </div>
                         </div>
                     </td>
-                    <td data-th="Price">${{ $details['price'] }}</td>
+                    <td data-th="Price">{{ $details['price'] }} €</td>
                     <td data-th="Quantity">
                         <div class="input-group">
                             <a href="{{ route('removeProduct.to.cart', $id) }}" class="btn btn-outline-secondary update-quantity">-</a>
@@ -37,7 +37,7 @@
                     </td>
                     @php $total = 0 @endphp
                     @php $total += $details['price'] * $details['quantity'] @endphp
-                    <td data-th="PriceTotal">${{ $total }}</td>
+                    <td data-th="PriceTotal">{{ $total }} €</td>
                     
                     <td class="actions">
                         <a class="btn btn-outline-danger btn-sm delete-product"><i class="fa-solid fa-trash"></i></a>
@@ -53,7 +53,7 @@
     <tfoot>
        <tr>
         
-        <td colspan="5" class="text-right">Total ${{ $totalPedido }}
+        <td colspan="5" class="text-right"><h5><strong>Total</strong> {{ $totalPedido }} € </h5>
         </td>
         </tr>
         <input type="hidden" name="precio_pedido" value="{{ $totalPedido }}">
@@ -69,7 +69,7 @@
 <button type="submit" class="btn btn-danger">Finalizar pedido</button>
 </form>
 @endsection
-  
+ 
 @section('scripts')
 <script type="text/javascript">
   

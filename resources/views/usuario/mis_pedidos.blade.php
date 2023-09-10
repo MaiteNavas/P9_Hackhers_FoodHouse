@@ -1,4 +1,4 @@
-@extends('pedido.shop')
+@extends('usuario.shop')
   
 @section('content')
 <div class="row">

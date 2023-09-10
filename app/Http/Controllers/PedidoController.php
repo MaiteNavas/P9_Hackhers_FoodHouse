@@ -15,13 +15,13 @@ class PedidoController extends Controller
     {
         $products = Producto::all();
         $categorias = Categoria::all($columns = ['*']);
-        return view('pedido.products', compact('products', 'categorias'));
+        return view('usuario.products', compact('products', 'categorias'));
         
     }
   
     public function productCart()
     {
-        return view('pedido.cart');
+        return view('usuario.cart');
     }
     public function addProducttoCart($id)
     {
@@ -99,11 +99,11 @@ class PedidoController extends Controller
         $pedido->producto()->attach($productos);
         session()->forget('cart');
 
-        return view('pedido.confirm');
+        return view('usuario.confirm');
     }
     public function show_pedidos(){
         $pedidos = Pedido::all();
-        return view('pedido.mis_pedidos', compact('pedidos'));
+        return view('usuario.mis_pedidos', compact('pedidos'));
     }
     public function show_pedidos_admin(){
         $pedidos = Pedido::all();
@@ -120,5 +120,12 @@ class PedidoController extends Controller
         ]);
 
         return redirect()->route('pedidos.index');
+    }
+    public function ventas_pedidos_admin()
+    {
+        $products = Producto::all();
+        $pedidos = Pedido::all($columns = ['*']);
+        return view('admin.ventas.ventas_index', compact('products', 'pedidos'));
+        
     }
 }

@@ -18,7 +18,7 @@ class PedidoProducto extends Model
     ];
     public function pedido(): BelongsTo
    {
-       return $this->belongsTo(Pedido::class);
+       return $this->belongsTo(Pedido::class, 'fecha_venta');
    }
    public function producto(): BelongsTo
    {
