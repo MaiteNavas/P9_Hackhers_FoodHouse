@@ -8,6 +8,7 @@
             <a class="btn custom-btn" href="{{ route('usuario.index')}}">Usuarios</a>
             <a class="btn custom-btn" href="{{ route('categoria.index')}}">Categorias</a>
             <a class="btn custom-btn" href="{{ route('producto.index')}}">Productos</a>
+            <a class="btn custom-btn" href="{{ route('pedidos.index')}}">Pedidos</a>
             <a class="btn custom-btn" href="">Ventas</a>
         </div>
     </div>
