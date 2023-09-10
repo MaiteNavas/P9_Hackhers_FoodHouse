@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.admin')
 @section('content')
     <a class="btn custom-btn" href="/admin">Volver</a>
     <a class="btn custom-btn" href="{{ route('producto.create')}}">Crear Producto</a>

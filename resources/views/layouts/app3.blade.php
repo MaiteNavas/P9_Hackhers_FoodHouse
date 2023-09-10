@@ -39,7 +39,7 @@
                     <ul class="navbar-nav ms-auto">
     @guest
         <li class="nav-item">
-            <a class="nav-link" href="/auth/login/login">Usuarios</a>
+            <a class="nav-link" href="/usuario">Usuarios</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/admin">Admin</a>
