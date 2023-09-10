@@ -1,66 +1,77 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h1 align="center"> HackHers - FoodHouse </h1>
 
-## About Laravel
+![Proyect FoodHouse CRM]( https://hackhers.s3.eu-north-1.amazonaws.com/Home1.jpg)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![GitHub Org's stars](https://img.shields.io/github/stars/lauuloulu?style=social)
+ 
+  
+  ## Indice
+1. [Descripción del Proyecto](#descripcion-proyecto)
+2. [Estado del Proyecto](#estado-proyecto)
+3. [Funcionalidades del Proyecto](#funcionalidades-proyecto)
+4. [Requisitos](#Requisitos-proyecto)
+5. [Abre y ejecuta el Proyecto](#abre-y-ejecuta)
+6. [Tecnologías Utilizadas](#tecnologias-utilizadas)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+ <h4> 1. Descripción del Proyecto </h4>
+  <p> Crear una aplicación web que permita a diferentes tipos de usuarios gestionar los productos y los pedidos a domicilio de un restaurante, de manera eficiente y organizada. Los usuarios podrán agregar, editar o eliminar platos del carrito de compra así como añadir algunos a favoritos. También permitirá a los usuarios revisar y repetir sus pedidos anteriores; el administrador puede crear platos y hacer un seguimiento de todos los pedidos que se han hecho en la tienda.</p> 
+  
+  
+ <h4> 2. Estado del Proyecto:  </h4>
+  
+  <h4 align="center">  :construction: Proyecto en construcción :construction:  </h4> 
+  
+  <h4> 3. 🔨 Funcionalidades del Proyecto:</h4>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Requisitos funcionales Usuario final:
+•	Añadir plato al carrito de compra. Ver carrito de compras. Eliminar plato
+•	Filtrar platos. Realizar el pedido. Newsletter.
+Requisitos funcionales Superadmin:
+•	Agregar, editar o eliminar platos. Categorización de platos.Recepción de órdenes. Análisis de ventas.  
+  
+<h4> 4. 💻 Requisitos :</h4>
+- La aplicación debe tener una cobertura de QA mínimo al 50%
+- Lenguaje de programación: Utilizar PHP Laravel para el desarrollo del backend.
+- Base de datos: Utilizar MySQL para almacenar y gestionar los datos de las tareas y los usuarios.
+- Interfaz web: Crear una interfaz web utilizando Blade como tecnología principal que implementa bootstrap para permitir a los usuarios interactuar con la aplicación
+- Arquitectura MVC: Utilizar el patrón de diseño Modelo-Vista-Controlador para organizar y estructurar el código de la aplicación de manera modular y escalable.
+- Validación de formularios: Realizar validación de datos en el lado del servidor y del usuario para garantizar la integridad y la coherencia de los datos ingresados por los usuarios
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<h4> 5.  🛠️ Abre y ejecuta el Proyecto:</h4>
+- $ git clone (https://github.com/MaiteNavas/P9_Hackhers_FoodHouse)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<h2> Debes realizar las siguientes instalaciones:</h2>
+     
+- $ git clone (https://github.com/MaiteNavas/P9_Hackhers_FoodHouse)
+- composer create-project laravel/laravel FoodHouse
+- composer require league/flysystem-aws-s3-v3 "^3.0" --with-all-dependencies
+- composer require laravel/ui
+- php artisan ui bootstrap
+- npm install && npm run dev
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<h4> 6. ⚙️ Tecnologías Utilizadas:</h4>
 
-### Premium Partners
+Lista de tecnologías utilizadas en este proyecto:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- 👨💻 JavaScript, PHP, Laravel
+- ⚙️ HTML
+- 👁️ CSS, Bootstrap, Blade
+- 💽 MySQL, XAMPP, AWS S3
 
-## Contributing
+<h4> Informacion para crear tus tablas en MySQL:</h4>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<img src="https://github.com/MaiteNavas/P9_Hackhers_FoodHouse/assets/132447020/f5863ca6-97b1-4871-8dba-3268da142b3d">
+<img src="https://github.com/MaiteNavas/P9_Hackhers_FoodHouse/assets/132447020/899973ec-ab84-49c5-b259-35a008073596">
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+ 
+   ## Creadoras
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+| [<img src="https://avatars.githubusercontent.com/u/132446914?v=4" width=115><br><sub>Laura Prat</sub>](https://github.com/lauuloulu) | [<img src="https://avatars.githubusercontent.com/u/132447016?v=4" width=115><br><sub>Maite Navas</sub>](https://github.com/MaiteNavas) | [<img src="https://avatars.githubusercontent.com/u/67557714?v=4" width=115><br><sub>Yolanda Zahonero</sub>](https://github.com/yzadeveloper) | [<img src="https://avatars.githubusercontent.com/u/108815965?v=4" width=115><br><sub>Andreina</sub>](https://github.com/Andre-889) | [<img src="https://avatars.githubusercontent.com/u/132447020?v=4" width=115><br><sub>Magdalena Filgueira</sub>](https://github.com/MaggieFilgueira) 
+| :---: | :---: | :---: | :---: | :---: |
+ 
