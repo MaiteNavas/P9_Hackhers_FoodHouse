@@ -40,6 +40,54 @@
     max-width: 30%;
 }
 
+.small{
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+}
+
+.small:hover{
+    background-color: white;
+    color: #FF6B01;
+    border-color: #FF6B01;
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+}
+
+.cart{
+    background-color: white;
+    color: #FF6B01;
+    border-color: #FF6B01;
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+}
+
+.cart:hover{
+    background-color: #FF6B01;
+    color: white;
+    border-color: white;
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+}
+
+.btn-outline-secondary,
+.btn-outline-success{
+    background-color: white;
+    color: #FF6B01;
+    border-color: #FF6B01;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-success:hover{
+    background-color: #FF6B01;
+    color: white;
+    border-color: white;
+}
+
+
 .crearusuario{
     background-color: #FF6B01;
     color: white;

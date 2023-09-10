@@ -22,9 +22,9 @@
   
 <div class="container mt-5">
     <div class="col-12">
-            <a class="btn custom-btn" href="{{ route('index.usuario')}}">Inicio</a>
-            <a class="btn custom-btn" href="{{ route('pedidos.usuario')}}">Mis Pedidos</a>
-            <a class="btn btn-outline-dark" href="{{ route('shopping.cart') }}">
+            <a class="btn custom-btn small"  href="{{ route('index.usuario')}}">Inicio</a>
+            <a class="btn custom-btn small" href="{{ route('pedidos.usuario')}}">Mis Pedidos</a>
+            <a class="btn  custom-btn cart" href="{{ route('shopping.cart') }}">
                 <i class="fa-solid fa-cart-shopping"></i> Pedido 
                 <span class="badge text-bg-danger">
                 @php $total = 0 @endphp

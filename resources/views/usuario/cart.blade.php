@@ -59,14 +59,14 @@
         <input type="hidden" name="precio_pedido" value="{{ $totalPedido }}">
         <tr>
             <td colspan="5" class="text-right">
-                <a href="{{ url('/usuario') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continuar con la compra</a>
+                <a href="{{ url('/usuario') }}" class="btn custom-btn small"><i class="fa fa-angle-left"></i> Continuar con la compra</a>
                 
             </td>
         </tr>
     </tfoot>
 </table>
 <input type="hidden" name="id_estado_pedido" value=1>
-<button type="submit" class="btn btn-danger">Finalizar pedido</button>
+<button type="submit" class="btn custom-btn small">Finalizar pedido</button>
 </form>
 @endsection
  
