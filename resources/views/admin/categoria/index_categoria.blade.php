@@ -1,7 +1,7 @@
     @extends('layouts.admin')
 
     @section('content')
-        <a class="btn custom-btn small" href="{{ route('categoria.index')}}">Volver</a>
+        <a class="btn custom-btn small" href="/admin">Volver</a>
         <a class="btn custom-btn small" href="{{ route('categoria.create')}}">Crear categoria</a>
         <h1>LISTA DE CATEGORIAS</h1>
         @forelse($categorias as $categoria)

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-    <a class="btn custom-btn" href="/admin">Volver</a>
-    <a class="btn custom-btn" href="{{ route('producto.create')}}">Crear Producto</a>
+    <a class="btn custom-btn small" href="/admin">Volver</a>
+    <a class="btn custom-btn small" href="{{ route('producto.create')}}">Crear Producto</a>
 </div>    
     <h1>LISTA DE PRODUCTOS</h1>
     <div class="row" id= "product-container">
