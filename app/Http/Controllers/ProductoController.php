@@ -55,10 +55,10 @@
         public function store_producto(Request $request) {
             $s3 = new S3Client([
                 'version' => 'latest',
-                'region'  => 'eu-north-1', 
+                'region'  => env('AWS_DEFAULT_REGION'), 
                 'credentials' => [
-                    'key'    => 'AKIA6B235Y4PHMHLESEU',
-                    'secret' => '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',
+                    'key'    => env('AWS_ACCESS_KEY_ID'),
+                    'secret' => env('AWS_SECRET_ACCESS_KEY'),
                 ],
             ]);
             $bucket = 'hackhers';
