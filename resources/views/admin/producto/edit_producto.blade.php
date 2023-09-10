@@ -11,6 +11,12 @@
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre del producto</label>
                 <input type="text" name="nombre_producto" value="{{ $producto->nombre_producto }}" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="imagen_producto">Selecciona una imagen:</label>
+            <select name="imagen_producto" id="imagen_producto">
+                @foreach($rutasFotosEnS3 as $rutaFotoEnS3)
+                    <option value="{{ $rutaFotoEnS3 }}" @if($categoria->ruta_foto == $rutaFotoEnS3) selected @endif>{{ $rutaFotoEnS3 }}</option>
+                @endforeach
+            </select>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Descripción</label>
                 <input type="text" name="descripcion" value="{{ $producto->descripcion }}" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -23,7 +29,7 @@
             </select>
             </div>
             <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Categoria</label>
+            <label for="exampleInputEmail1" class="form-label">Estado de Producto</label>
             <select name="id_estado_producto" required class="form-control" id="estado_producto">
             @foreach ($estadoProductos as $estadoProducto)
                 <option value="{{$estadoProducto->id_estado_producto}}">{{$estadoProducto->nombre_estado_producto}}</option>

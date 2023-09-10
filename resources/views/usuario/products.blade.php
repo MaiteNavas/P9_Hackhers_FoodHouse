@@ -20,6 +20,7 @@
             <div class="card">
                 <div class="card-body">
                     <i>{{ $product->categoria->nombre_categoria }}</i>
+                    <img class="producto-imagen" src="{{ $product->ruta_foto_producto }}" alt="Foto del Producto">
                     <h4 class="card-title">{{ $product->nombre_producto }}</h4>
                     <p>{{ $product->descripcion }}</p>
                     <input id= "categorias" value= "{{ $product->categoria->id_categoria }}" hidden></input>

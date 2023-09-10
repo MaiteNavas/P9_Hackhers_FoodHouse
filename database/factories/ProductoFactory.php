@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Producto>
  */
@@ -16,8 +16,9 @@ class ProductoFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
+        return ['nombre_producto' => Str::random(25),
+        'descripcion' => Str::random(150),
+        'precio' => random_int(1,125),
         ];
     }
 }
