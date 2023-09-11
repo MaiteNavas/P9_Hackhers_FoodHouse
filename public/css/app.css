@@ -1,0 +1,168 @@
+
+/*BOTONES*/
+
+.custom-btn {
+    background-color: #FF6B01;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    max-width: 100%;
+    
+}
+.custom-btn .btn {
+    padding: 5px 10px; 
+}
+
+.custom-btn:hover {
+    background-color: white;
+    color: #FF6B01;
+    border-color: #FF6B01;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+
+
+.crearusuarioprimero{
+    display: flex;
+    justify-content: center;
+    max-width: 30%;
+}
+
+.crearusuarioprimero:hover{
+    background-color: white;
+    color: #FF6B01;
+    border-color: #FF6B01;
+    display: flex;
+    justify-content: center;
+    max-width: 30%;
+}
+
+.small{
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+    margin-top:5px;
+}
+
+.small:hover{
+    background-color: white;
+    color: #FF6B01;
+    border-color: #FF6B01;
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+}
+
+.cart{
+    background-color: white;
+    color: #FF6B01;
+    border-color: #FF6B01;
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+}
+
+.cart:hover{
+    background-color: #FF6B01;
+    color: white;
+    border-color: white;
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+}
+
+.btn-outline-secondary,
+.btn-outline-success{
+    background-color: white;
+    color: #FF6B01;
+    border-color: #FF6B01;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-success:hover{
+    background-color: #FF6B01;
+    color: white;
+    border-color: white;
+}
+
+
+.crearusuario{
+    background-color: #FF6B01;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+   
+
+
+
+/*CONTENEDORES*/
+
+.container-acceso {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-container{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containercrearusuario{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.centerusuario {
+    border-collapse: collapse; 
+    border: 1px solid #FF6B01; 
+    border-radius: 5px; 
+    margin-bottom: 10px;
+}
+
+
+/*NAVBAR*/
+
+.navbar-custom{
+    background: rgb(248,250,252);
+    background: linear-gradient(0deg, rgba(248,250,252,1) 0%, rgba(255,107,1,1) 100%);}
+
+.navbar-custom .navbar-nav .nav-item .nav-link  {
+    color: white;
+}
+.navbar-custom .navbar-brand {
+    color: white;
+    
+}
+
+/*FOOTER*/
+
+.row-copyright{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*ADMIN-INDEX-CATEGORIA-IMAGEN*/
+
+.categoria-imagen{
+max-width: 30%;
+max-height: 30%;
+}
+
+.categoria{
+    margin-left: 25px;
+}

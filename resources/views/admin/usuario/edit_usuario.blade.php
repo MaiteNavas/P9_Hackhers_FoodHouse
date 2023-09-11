@@ -1,8 +1,7 @@
-@extends('layouts.app2')
+@extends('layouts.admin')
 
 @section('content')
 
-<a class="btn custom-btn" href="{{ route('usuario.index')}}">Volver</a>
 
 <div class="container-with-border bg-light" >
         <h1>Editar usuario</h1>
@@ -32,4 +31,8 @@
 
         </form>
     </div>
+    <div class="center-container">
+       <a class="btn custom-btn" href="{{ route('usuario.index')}}">Volver a usuario</a>
+    </div>
+
 @endsection

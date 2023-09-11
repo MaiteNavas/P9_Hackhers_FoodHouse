@@ -24,6 +24,7 @@ class UsuarioController extends Controller
             'nombre' => $request->nombre,
             'apellidos' => $request->apellidos,
             'correo' => $request->correo,
+            'contraseña' =>$request->contraseña,
             'direccion' => $request->direccion,
             'telefono' => $request->telefono,
         ]);
